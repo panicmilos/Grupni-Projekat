@@ -6,4 +6,28 @@
 // Description : C++ group project
 //============================================================================
 
-//  Your code starts here
+#include "Student.h"
+
+Student::Student(const std::string fn, const std::string ln, const std::string id)
+{
+}
+
+std::string Student::get_first_name() const
+{
+	return firstName;
+}
+
+std::string Student::get_last_name() const
+{
+	return lastName;
+}
+
+std::string Student::get_id() const
+{
+	return ID;
+}
+
+void Student::display() const
+{
+	std::cout << ID << " - " << firstName << " " << lastName << "\n";
+}

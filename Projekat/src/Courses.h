@@ -38,7 +38,7 @@ private:
 
 public:
 	// constructors
-	Courses() : quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
+	Courses() : quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS), final_score(0), letter_grade('F') {}
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
 

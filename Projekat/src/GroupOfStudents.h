@@ -12,19 +12,23 @@
 #include <vector>
 #include "StudentCourses.h"
 
-using std::vector;
-
 class GroupOfStudents
 {
 private:
-	void search_for_highest(vector<int>& indices_max) const; // utility
+	std::vector<StudentCourses> st_vec;
+	void search_for_highest(std::vector<int>& indices_max) const; // utility
 
 public:
 	GroupOfStudents() {}
-	GroupOfStudents(const vector< StudentCourses >& v);
+	GroupOfStudents(const std::vector< StudentCourses >& v);
 
 	// add required methods
-	const vector<StudentCourses>& get_student_courses() const;
+	const std::vector<StudentCourses>& get_student_courses() const;
+
+	void display() const;
+	void display_sorted() const;
+	void display_highest() const;
+	void write_to_file() const;
 };
 
 #endif /*GROUPOFSTUDENTS_H_*/

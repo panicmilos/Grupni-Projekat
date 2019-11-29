@@ -6,26 +6,27 @@
 // Description : C++ group project
 //============================================================================
 
-
 #ifndef STUDENT_H_
 #define STUDENT_H_
 
 #include <string>
 #include <iostream>
 
-using std::string;
-
 class Student
 {
 private:
-	// add required members
+	std::string firstName;
+	std::string lastName;
+	std::string ID;
 
 public:
-	// add required constructors
+	// Da li da dodamo prazan constructor?
+	// Ja ne bih dodavao ~MP
+	Student(const std::string fn, const std::string ln, const std::string id);
 
-	string get_first_name() const;
-	string get_last_name() const;
-	string get_id() const;
+	std::string get_first_name() const;
+	std::string get_last_name() const;
+	std::string get_id() const;
 	void display() const;
 };
 

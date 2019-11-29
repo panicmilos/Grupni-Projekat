@@ -14,12 +14,13 @@
 
 class StudentCourses
 {
-	// add required members
+	Student student;
+	Courses courses;
 public:
 
 	Student get_student() const {
 		// dodato samo da bi se compile
-		return Student();// return student; }
+		return Student("m", "m", "M");// return student; }
 	}
 };
 
