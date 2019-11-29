@@ -6,7 +6,6 @@
 // Description : C++ group project
 //============================================================================
 
-
 #ifndef _STUDENTCOURSES_H_
 #define _STUDENTCOURSES_H_
 
@@ -18,7 +17,10 @@ class StudentCourses
 	// add required members
 public:
 
-	Student get_student() const { return student; }
+	Student get_student() const {
+		// dodato samo da bi se compile
+		return Student();// return student; }
+	}
 };
 
 #endif

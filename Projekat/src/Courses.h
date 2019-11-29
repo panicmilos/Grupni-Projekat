@@ -25,9 +25,9 @@ private:
 	// this will not compile
 	// non-integral constants must be initialized in Courses.cpp
 	// with these values 0.05, 0.5, 0.45
-	static const double QUIZ_WEIGHT = 0.05;
-	static const double HOMEWORK_WEIGHT = 0.5;
-	static const double TEST_WEIGHT = 0.45;
+	static constexpr double QUIZ_WEIGHT = 0.05;
+	static constexpr double HOMEWORK_WEIGHT = 0.5;
+	static constexpr double TEST_WEIGHT = 0.45;
 
 	// private data
 	vector<int> quiz;
@@ -38,7 +38,7 @@ private:
 
 public:
 	// constructors
-	Courses (): quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
+	Courses() : quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS) {}
 	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
 
@@ -49,5 +49,4 @@ public:
 	void calc_letter_grade();
 };
 
-
-#endif 
+#endif

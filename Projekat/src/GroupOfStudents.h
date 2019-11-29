@@ -6,7 +6,6 @@
 // Description : C++ group project
 //============================================================================
 
-
 #ifndef GROUPOFSTUDENTS_H_
 #define GROUPOFSTUDENTS_H_
 
