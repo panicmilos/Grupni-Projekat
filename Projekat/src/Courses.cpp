@@ -8,24 +8,24 @@
 
 #include "Courses.h"
 
-double get_final_score() const
+double Courses::get_final_score() const
 {
 	return final_score;
 }
 
-void display() const
+void Courses::display() const
 {
 	// приказује коначни број бодова заокружен на
 	//најближу интегралну вредност односно вредност оцене одређену као слово.
 }
 
-void calc_final_score()
+void Courses::calc_final_score()
 {
 	//рачуна коначни број бодова на основу
 	//података о курсу
 }
 
-void calc_letter_grade()
+void Courses::calc_letter_grade()
 {
 	// одређује одговарајућу оцену представљену
 	// као слово(A, B, C, D, F)
