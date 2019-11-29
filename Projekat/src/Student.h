@@ -15,8 +15,8 @@
 class Student
 {
 private:
-	std::string firstName;
-	std::string lastName;
+	std::string first_name;
+	std::string last_name;
 	std::string ID;
 
 public:

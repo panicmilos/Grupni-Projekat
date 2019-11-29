@@ -131,6 +131,7 @@
     <ClCompile Include="src\StudentCourses.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Sorter.h" />
     <ClInclude Include="src\Courses.h" />
     <ClInclude Include="src\GroupOfStudents.h" />
     <ClInclude Include="src\Menu.h" />

@@ -14,12 +14,12 @@ Student::Student(const std::string fn, const std::string ln, const std::string i
 
 std::string Student::get_first_name() const
 {
-	return firstName;
+	return first_name;
 }
 
 std::string Student::get_last_name() const
 {
-	return lastName;
+	return last_name;
 }
 
 std::string Student::get_id() const
@@ -29,10 +29,17 @@ std::string Student::get_id() const
 
 void Student::display() const
 {
-	std::cout << ID << " - " << firstName << " " << lastName << "\n";
+	std::cout << ID << " - " << first_name << " " << last_name << "\n";
 }
+
+// overload >= <= i napravi sorter kao posebnu /obicnu/ klasu koja prima vektore bilo cega i sortira ih
+// koristeci overloadovane <= i >=
 
 //komentar
 //neki_test_primer
 //komentar
 //komentar2
+
+// configuration properties/debugging/cmd arg
+
+// underscore notacija
