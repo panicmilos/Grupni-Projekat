@@ -30,3 +30,5 @@ void Courses::calc_letter_grade()
 	// одређује одговарајућу оцену представљену
 	// као слово(A, B, C, D, F)
 }
+
+//komentar2

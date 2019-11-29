@@ -31,3 +31,5 @@ void Student::display() const
 {
 	std::cout << ID << " - " << firstName << " " << lastName << "\n";
 }
+
+//komentar
