@@ -33,4 +33,6 @@ void Student::display() const
 }
 
 //komentar
+//neki_test_primer
+//komentar
 //komentar2
