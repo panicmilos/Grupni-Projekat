@@ -20,14 +20,16 @@ private:
 	std::string ID;
 
 public:
-	// Da li da dodamo prazan constructor?
-	// Ja ne bih dodavao ~MP
-	Student(const std::string fn, const std::string ln, const std::string id);
+	Student(const std::string& fn, const std::string& ln, const std::string& id);
 
 	std::string get_first_name() const;
 	std::string get_last_name() const;
 	std::string get_id() const;
 	void display() const;
+
+	friend std::ostream& operator <<(std::ostream& out, const Student& s);
 };
+
+std::ostream& operator <<(std::ostream& out, const Student& s);
 
 #endif /*STUDENT_H_*/

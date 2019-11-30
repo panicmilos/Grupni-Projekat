@@ -131,12 +131,15 @@
     <ClCompile Include="src\StudentCourses.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sorter.h" />
+    <ClInclude Include="src\Sorter.h" />
     <ClInclude Include="src\Courses.h" />
     <ClInclude Include="src\GroupOfStudents.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Student.h" />
     <ClInclude Include="src\StudentCourses.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\input1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

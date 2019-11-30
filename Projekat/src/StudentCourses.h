@@ -16,12 +16,16 @@ class StudentCourses
 {
 	Student student;
 	Courses courses;
+
 public:
 
-	Student get_student() const {
-		// dodato samo da bi se compile
-		return Student("m", "m", "M");// return student; }
-	}
+	Student get_student() const;
+	double get_final_score() const;
+	void display() const;
+
+	friend std::ostream& operator <<(std::ostream& out, const StudentCourses& sc);
 };
+
+std::ostream& operator <<(std::ostream& out, const StudentCourses& sc);
 
 #endif

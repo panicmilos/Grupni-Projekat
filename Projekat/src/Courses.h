@@ -11,8 +11,7 @@
 
 #include <iostream>
 #include <vector>
-
-using std::vector;
+#include <numeric>
 
 class Courses
 {
@@ -30,16 +29,19 @@ private:
 	static constexpr double TEST_WEIGHT = 0.45;
 
 	// private data
-	vector<int> quiz;
-	vector<int> homework;
-	vector<int> test;
+	std::vector<int> quiz;
+	std::vector<int> homework;
+	std::vector<int> test;
 	double final_score;
 	char letter_grade;
+
+	// sum of grades in vector
+	int sum_grades_in_vector(std::vector<int>& grades) const;
 
 public:
 	// constructors
 	Courses() : quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS), final_score(0), letter_grade('F') {}
-	Courses(const vector<int>& q, const vector<int>& h, const vector<int>& t)
+	Courses(const std::vector<int>& q, const std::vector<int>& h, const std::vector<int>& t)
 		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
 
 	// utility functions
@@ -47,6 +49,10 @@ public:
 	void display() const;
 	void calc_final_score();
 	void calc_letter_grade();
+
+	friend std::ostream& operator <<(std::ostream& out, const Courses& c);
 };
+
+std::ostream& operator <<(std::ostream& out, const Courses& c);
 
 #endif

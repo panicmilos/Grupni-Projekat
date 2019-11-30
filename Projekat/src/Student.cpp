@@ -8,7 +8,8 @@
 
 #include "Student.h"
 
-Student::Student(const std::string fn, const std::string ln, const std::string id)
+Student::Student(const std::string& fn, const std::string& ln, const std::string& id) :
+	first_name(fn), last_name(ln), ID(id)
 {
 }
 
@@ -29,16 +30,16 @@ std::string Student::get_id() const
 
 void Student::display() const
 {
-	std::cout << ID << " - " << first_name << " " << last_name << "\n";
+	std::cout << *this;
+}
+
+std::ostream& operator <<(std::ostream& out, const Student& s)
+{
+	return out << s.ID << " - " << s.first_name << " " << s.last_name;
 }
 
 // overload >= <= i napravi sorter kao posebnu /obicnu/ klasu koja prima vektore bilo cega i sortira ih
 // koristeci overloadovane <= i >=
-
-//komentar
-//neki_test_primer
-//komentar
-//komentar2
 
 // configuration properties/debugging/cmd arg
 

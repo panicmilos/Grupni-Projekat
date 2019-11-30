@@ -15,6 +15,7 @@ Menu::Menu()
 }
 
 bool Menu::is_id_valid(string id) const { return true; }
+
 void Menu::display_menu() const
 {
 	std::cout << "1. Prikazi osnovne informacije o autorima\n"
@@ -37,15 +38,18 @@ void Menu::display_info() const
 void Menu::read_students() {
 	// citanje studenata iz datoteke
 }
+
 void Menu::display_students() const
 {
-	// poziv metode iz gS
+	gs.display();
 }
+
 void Menu::display_students_sorted() const
 {
-	// poziv metode iz gS
+	gs.display_sorted();
 }
+
 void Menu::display_highest_score() const
 {
-	// poziv metode iz gS
+	gs.display_highest();
 }

@@ -8,4 +8,10 @@
 
 // divide?
 
-// camelCase 
+// camelCase
+
+class MergeSort
+{
+public:
+	template <typedef T> void static sort(std::vector<T>& st_vec);
+};

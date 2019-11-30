@@ -1,5 +1,5 @@
 //============================================================================
-// File Name   : main.cpp 
+// File Name   : main.cpp
 // Authors     : You
 // Version     : 1.0
 // Copyright   : Your copyright notice (if applicable)
@@ -11,12 +11,12 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
 	Menu m;
 	int option;
 	m.display_menu();
-	
+
 	do
 	{
 		cout << "> ";
@@ -26,21 +26,21 @@ int main()
 			{
 				cin.clear();	// we’d like to look at the characters
 				char ch;
-				while (cin>>ch && !isdigit(ch))
+				while (cin >> ch && !isdigit(ch))
 				{
 					cerr << "Invalid input; please try again" << endl;
 					cout << "> ";
 				}
 				cin.unget();
-			} 
+			}
 			else
 			{	// option < 1 || option > Menu::EXIT */
 				cerr << "Invalid input; please try again" << endl;
 				cout << "> ";
 			}
 		}
-			
-		switch(option)
+
+		switch (option)
 		{
 		case Menu::INFO:
 			m.display_info();
@@ -49,10 +49,12 @@ int main()
 			try
 			{
 				m.read_students();
-			} catch (const Menu::InvalidFile& excp)
+			}
+			catch (const Menu::InvalidFile & excp)
 			{
 				cerr << excp.what() << endl;
-			} catch (const Menu::InvalidData& excp)
+			}
+			catch (const Menu::InvalidData & excp)
 			{
 				cerr << excp.what() << endl;
 			}
@@ -62,7 +64,7 @@ int main()
 			break;
 		case Menu::DISPLAY_SORTED:
 			m.display_students_sorted();
-			break;   
+			break;
 		case Menu::HIGHEST:
 			m.display_highest_score();
 			break;

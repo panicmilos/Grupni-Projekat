@@ -6,4 +6,34 @@
 // Description : C++ group project
 //============================================================================
 
-//  Your code starts here
+#include "GroupOfStudents.h"
+
+GroupOfStudents::GroupOfStudents(const std::vector< StudentCourses >& v) :
+	st_vec(v)
+{
+}
+
+void GroupOfStudents::search_for_highest(std::vector<int>& indices_max) const
+{
+}
+
+const std::vector<StudentCourses>& GroupOfStudents::get_student_courses() const
+{
+	return st_vec;
+}
+
+void GroupOfStudents::display() const
+{
+}
+
+void GroupOfStudents::display_sorted() const
+{
+}
+
+void GroupOfStudents::display_highest() const
+{
+}
+
+void GroupOfStudents::write_to_file() const
+{
+}
