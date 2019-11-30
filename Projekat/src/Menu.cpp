@@ -35,7 +35,11 @@ void Menu::display_info() const
 		<< "Milos Panic (sw19-2018)\n";
 }
 
-void Menu::read_students() {
+void Menu::read_students(std::string input_path)
+{
+	//napravi se file sa imenom in;
+	// in >> gs;
+	// provera gresaka i to.
 }
 
 void Menu::display_students() const

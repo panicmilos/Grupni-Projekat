@@ -40,9 +40,9 @@ private:
 
 public:
 	// constructors
-	Courses() : quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS), final_score(0), letter_grade('F') {}
-	Courses(const std::vector<int>& q, const std::vector<int>& h, const std::vector<int>& t)
-		: quiz(q), homework(h), test(t), final_score(0), letter_grade('F') {}
+	Courses();
+	Courses(const std::vector<int>& q, const std::vector<int>& h, const std::vector<int>& t);
+	Courses(const Courses& c);
 
 	// utility functions
 	double get_final_score() const;
@@ -51,8 +51,10 @@ public:
 	void calc_letter_grade();
 
 	friend std::ostream& operator <<(std::ostream& out, const Courses& c);
+	friend std::istream& operator >>(std::istream& in, Courses& c);
 };
 
 std::ostream& operator <<(std::ostream& out, const Courses& c);
+std::istream& operator >>(std::istream& in, Courses& c);
 
 #endif

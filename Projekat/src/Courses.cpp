@@ -8,6 +8,23 @@
 
 #include "Courses.h"
 
+Courses::Courses() :
+	quiz(NUM_QUIZZES), homework(NUM_HW), test(NUM_TESTS), final_score(0), letter_grade('F')
+{
+}
+
+Courses::Courses(const std::vector<int>& q, const std::vector<int>& h, const std::vector<int>& t)
+	: quiz(q), homework(h), test(t), final_score(0), letter_grade('F')
+{
+	calc_final_score();
+	calc_letter_grade();
+}
+
+Courses::Courses(const Courses& c) :
+	quiz(c.quiz), homework(c.homework), test(c.test), final_score(c.final_score), letter_grade(c.letter_grade)
+{
+}
+
 int Courses::sum_grades_in_vector(std::vector<int>& grades) const
 {
 	const auto accumulation = [](int sum, int number) { return sum + number; };
@@ -65,4 +82,9 @@ void Courses::calc_letter_grade()
 std::ostream& operator <<(std::ostream& out, const Courses& c)
 {
 	return out << c.final_score << " " << c.letter_grade;
+}
+
+std::istream& operator >>(std::istream& in, Courses& c)
+{
+	return in;
 }

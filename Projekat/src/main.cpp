@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include "Menu.h"
-#include "Validations.h
+#include "Validations.h"
 
 using namespace std;
 
@@ -95,7 +95,7 @@ int main(int argc, char* argv[])
 		case Menu::READ_FILE:
 			try
 			{
-				m.read_students();
+				m.read_students(input_path);
 			}
 			catch (const Menu::InvalidFile & excp)
 			{

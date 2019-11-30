@@ -20,7 +20,9 @@ private:
 	std::string ID;
 
 public:
+	Student();
 	Student(const std::string& fn, const std::string& ln, const std::string& id);
+	Student(const Student& s);
 
 	std::string get_first_name() const;
 	std::string get_last_name() const;
@@ -28,8 +30,10 @@ public:
 	void display() const;
 
 	friend std::ostream& operator <<(std::ostream& out, const Student& s);
+	friend std::istream& operator >>(std::istream& in, Student& s);
 };
 
 std::ostream& operator <<(std::ostream& out, const Student& s);
+std::istream& operator >>(std::istream& in, Student& s);
 
 #endif /*STUDENT_H_*/

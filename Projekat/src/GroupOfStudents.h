@@ -19,8 +19,9 @@ private:
 	void search_for_highest(std::vector<int>& indices_max) const; // utility
 
 public:
-	GroupOfStudents() {}
+	GroupOfStudents();
 	GroupOfStudents(const std::vector< StudentCourses >& v);
+	GroupOfStudents(const GroupOfStudents& gof);
 
 	// add required methods
 	const std::vector<StudentCourses>& get_student_courses() const;
@@ -29,6 +30,12 @@ public:
 	void display_sorted() const;
 	void display_highest() const;
 	void write_to_file() const;
+
+	friend std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof);
+	friend std::istream& operator >>(std::istream& in, GroupOfStudents& gof);
 };
+
+std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof);
+std::istream& operator >>(std::istream& in, GroupOfStudents& gof);
 
 #endif /*GROUPOFSTUDENTS_H_*/
