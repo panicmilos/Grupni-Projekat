@@ -127,8 +127,10 @@
     <ClCompile Include="src\GroupOfStudents.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Menu.cpp" />
+    <ClCompile Include="src\Sorter.cpp" />
     <ClCompile Include="src\Student.cpp" />
     <ClCompile Include="src\StudentCourses.cpp" />
+    <ClCompile Include="src\Validations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Sorter.h" />
@@ -137,6 +139,7 @@
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Student.h" />
     <ClInclude Include="src\StudentCourses.h" />
+    <ClInclude Include="src\Validations.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\input1.txt" />

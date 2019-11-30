@@ -24,6 +24,10 @@ const std::vector<StudentCourses>& GroupOfStudents::get_student_courses() const
 
 void GroupOfStudents::display() const
 {
+	for (StudentCourses sc : st_vec)
+	{
+		std::cout << sc;
+	}
 }
 
 void GroupOfStudents::display_sorted() const

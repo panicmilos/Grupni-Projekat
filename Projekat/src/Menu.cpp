@@ -14,7 +14,7 @@ Menu::Menu()
 {
 }
 
-bool Menu::is_id_valid(string id) const { return true; }
+bool Menu::is_id_valid(std::string id) const { return true; }
 
 void Menu::display_menu() const
 {
@@ -36,7 +36,6 @@ void Menu::display_info() const
 }
 
 void Menu::read_students() {
-	// citanje studenata iz datoteke
 }
 
 void Menu::display_students() const
