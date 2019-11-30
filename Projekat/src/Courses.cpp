@@ -25,7 +25,7 @@ Courses::Courses(const Courses& c) :
 {
 }
 
-int Courses::sum_grades_in_vector(std::vector<int>& grades) const
+int Courses::sum_grades_in_vector(const std::vector<int>& grades) const
 {
 	const auto accumulation = [](int sum, int number) { return sum + number; };
 

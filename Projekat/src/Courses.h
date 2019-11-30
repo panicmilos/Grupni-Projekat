@@ -36,7 +36,7 @@ private:
 	char letter_grade;
 
 	// sum of grades in vector
-	int sum_grades_in_vector(std::vector<int>& grades) const;
+	int sum_grades_in_vector(const std::vector<int>& grades) const;
 
 public:
 	// constructors
