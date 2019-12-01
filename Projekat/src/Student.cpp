@@ -78,7 +78,7 @@ std::ostream& operator <<(std::ostream& out, const Student& s)
 // @throws se koristi za exceptione ako baca.
 std::istream& operator >>(std::istream& in, Student& s)
 {
-	return in;
+	return in >> s.first_name >> s.last_name >> s.ID;
 }
 
 // overload >= <= i napravi sorter kao posebnu /obicnu/ klasu koja prima vektore bilo cega i sortira ih

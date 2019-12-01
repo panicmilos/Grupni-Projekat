@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Menu.h"
 #include "Validations.h"
+#include <fstream>
 
 using namespace std;
 
@@ -50,6 +51,13 @@ std::string find_output_path(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
+	ifstream in(argv[1]);
+	Student s;
+	in >> s;
+	std::string cao;
+	getline(in, cao);
+	std::cout << cao << "NESTO";
+	std::cout << s << "\n";
 	if (!validate_arguments(argc, argv))
 	{
 		std::cout << "Invalid console line arguments\n";

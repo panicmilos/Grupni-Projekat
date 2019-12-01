@@ -20,7 +20,7 @@
  */
 bool validate_num_of_args(int argc)
 {
-	return MIN_NUM_OF_ARGS <= argc && argc <= MAX_NUM_OF_ARGS 4;
+	return MIN_NUM_OF_ARGS <= argc && argc <= MAX_NUM_OF_ARGS;
 }
 
 /*
