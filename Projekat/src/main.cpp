@@ -10,6 +10,7 @@
 #include "Menu.h"
 #include "Validations.h"
 #include <fstream>
+#include "Sorter.h"
 
 using namespace std;
 
