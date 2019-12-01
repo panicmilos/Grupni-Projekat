@@ -133,6 +133,7 @@
     <ClCompile Include="src\Student.cpp" />
     <ClCompile Include="src\StudentCourses.cpp" />
     <ClCompile Include="src\Validations.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ioutils.h" />
