@@ -10,13 +10,27 @@
 #include "Menu.h"
 #include "Validations.h"
 #include "ioutils.h"
+// ovo pobrisati
+
 #include <fstream>
 #include "Sorter.h"
+#include "Sorter.cpp"
 
 using namespace std;
 
+bool comp(int i, int j) {
+	return i > j;
+}
+
 int main(int argc, char* argv[])
 {
+	std::vector<int> v = { 5, 9, 3, 7, 6 };
+	MergeSort::merge_sort<int>(v, comp);
+
+	for (int i = 0; i < 5; ++i) {
+		printf("%d", v[i]);
+	}
+
 	if (!validate_arguments(argc, argv))
 	{
 		std::cout << "Invalid console line arguments\n";

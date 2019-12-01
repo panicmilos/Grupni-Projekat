@@ -9,6 +9,7 @@
 //============================================================================
 
 #include "Sorter.h"
+#include <exception>
 
 /*
 Funckija koja sortira vector elemenata po zadatom kriterijmu
@@ -19,9 +20,8 @@ TODO: nisam siguran kako dokumentovati ovo
 template <typename T>
 void static MergeSort::merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(T, T)) {
 	// zauzmemo memoriju velicine vec.size() i u tom delu vrsimo spajanje nizova
-	std::vector<T> pom;
-	pom.reserve(vec.size());
-	merge_sort_loop(vec, &pom, comparison_fcn, 0, vec.size() - 1);
+	std::vector<T> pom(vec.size());
+	merge_sort_loop(vec, pom, comparison_fcn, 0, vec.size() - 1);
 }
 
 template <typename T>
@@ -36,8 +36,8 @@ void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& pom, bool (
 	else if (end == begin) {
 		return;
 	}
-	merge_sort_loop(vec, comparison_fcn, begin, middle);
-	merge_sort_loop(vec, comparison_fcn, middle + 1, end);
+	merge_sort_loop(vec, pom, comparison_fcn, begin, middle);
+	merge_sort_loop(vec, pom, comparison_fcn, middle + 1, end);
 	merge(vec, pom, comparison_fcn, begin, middle, end);
 }
 
@@ -47,7 +47,7 @@ void MergeSort::merge(std::vector<T>& vec, std::vector<T>& pom, bool(*comparison
 	int j = middle + 1;
 	int k = begin;
 
-	while (i <= middle and j <= end) {
+	while (i <= middle && j <= end) {
 		if (comparison_fcn(vec[i], vec[j])) {
 			pom[k] = vec[i];
 			i++;
