@@ -9,6 +9,7 @@
 #ifndef GROUPOFSTUDENTS_H_
 #define GROUPOFSTUDENTS_H_
 
+#include <fstream>
 #include <vector>
 #include "StudentCourses.h"
 
@@ -29,7 +30,7 @@ public:
 	void display() const;
 	void display_sorted() const;
 	void display_highest() const;
-	void write_to_file() const;
+	void write_to_file(std::ofstream& out) const;
 
 	friend std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof);
 	friend std::istream& operator >>(std::istream& in, GroupOfStudents& gof);

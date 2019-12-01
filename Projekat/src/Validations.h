@@ -1,3 +1,13 @@
+//============================================================================
+// File Name	   : Validations.h
+// Authors		   : Milos Panic
+// Created         : 30.11.2019.
+// Last Modified   : 30.11.2019. By Milos Panic
+// Version         : 1.0
+// Description     : Ovaj moduo sadrzi sve potrebne funkcije za proveru
+// parametara komandne linije kao sto su kolicina parametara i tip.
+//============================================================================
+
 #pragma once
 #include <string>
 

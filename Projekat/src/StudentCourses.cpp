@@ -64,7 +64,7 @@ void StudentCourses::display() const
  */
 std::ostream& operator <<(std::ostream& out, const StudentCourses& sc)
 {
-	return out << sc.student << sc.courses;
+	return out << sc.student << " " << sc.courses;
 }
 
 // Dodati dokumentaciju

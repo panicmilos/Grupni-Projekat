@@ -35,9 +35,21 @@ void Menu::display_info() const
 
 void Menu::read_students(std::string input_path)
 {
-	//napravi se file sa imenom in;
-	// in >> gs;
-	// provera gresaka i to.
+	std::ifstream in(input_path);
+
+	if (!in.is_open())
+	{
+		throw InvalidFile();
+	}
+
+	in >> gs;
+
+	if (in.fail())
+	{
+		throw InvalidData();
+	}
+
+	in.close();
 }
 
 void Menu::display_students() const
@@ -53,4 +65,13 @@ void Menu::display_students_sorted() const
 void Menu::display_highest_score() const
 {
 	gs.display_highest();
+}
+
+void Menu::write_students(std::string output_path)
+{
+	std::ofstream out(output_path);
+
+	gs.write_to_file(out);
+
+	out.close();
 }

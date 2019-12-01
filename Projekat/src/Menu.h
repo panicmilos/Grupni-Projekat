@@ -12,6 +12,7 @@
 #include <string>
 #include <stdexcept>
 #include "GroupOfStudents.h"
+#include <fstream>
 
 class Menu
 {
@@ -24,7 +25,7 @@ public:
 		InvalidFile() : runtime_error("Invalid input file name") {}
 	};
 
-	enum OPTIONS { INFO = 1, READ_FILE, DISPLAY, DISPLAY_SORTED, HIGHEST, EXIT };
+	enum OPTIONS { INFO = 1, READ_FILE, DISPLAY_STUDENT, HIGHEST, DISPLAY_SORTED, DISPLAY_ALL, WRITE_FILE, EXIT };
 
 private:
 	GroupOfStudents gs;
@@ -39,6 +40,7 @@ public:
 	void display_students() const;
 	void display_students_sorted() const;
 	void display_highest_score() const;
+	void write_students(std::string output_path);
 };
 
 #endif /*MENU_H_*/

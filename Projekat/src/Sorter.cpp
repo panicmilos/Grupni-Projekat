@@ -21,7 +21,7 @@ template <typename T>
 void static MergeSort::merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(T, T), int begin = 0, int end = vec.size() - 1) {
 	int middle = (end + begin) / 2;
 	if (end - begin == 1) {
-		if (comparison_fcn(vector[begin], vector[end])) {
+		if (comparison_fcn(vec[begin], vec[end])) {
 			std::swap(vec[begin], vec[end]);
 			return;
 		}

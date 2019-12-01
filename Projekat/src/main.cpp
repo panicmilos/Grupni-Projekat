@@ -9,55 +9,12 @@
 #include <iostream>
 #include "Menu.h"
 #include "Validations.h"
-#include <fstream>
+#include "ioutils.h"
 
 using namespace std;
 
-#define DEFAULT_OUTPUT_NAME "default_output_name.txt";
-
-int find_last_char_in_string(std::string str, char c)
-{
-	for (int i = str.size() - 1; i >= 0; --i)
-	{
-		if (str[i] == c)
-		{
-			return i;
-		}
-	}
-
-	return -1;
-}
-
-std::string find_output_path(int argc, char* argv[])
-{
-	if (argc == 4)
-	{
-		return argv[3];
-	}
-
-	const int index = find_last_char_in_string(argv[1], '/');
-
-	if (index != -1)
-	{
-		const std::string input_path = argv[1];
-
-		return input_path.substr(0, index + 1) + DEFAULT_OUTPUT_NAME;
-	}
-	else
-	{
-		return DEFAULT_OUTPUT_NAME
-	}
-}
-
 int main(int argc, char* argv[])
 {
-	ifstream in(argv[1]);
-	Student s;
-	in >> s;
-	std::string cao;
-	getline(in, cao);
-	std::cout << cao << "NESTO";
-	std::cout << s << "\n";
 	if (!validate_arguments(argc, argv))
 	{
 		std::cout << "Invalid console line arguments\n";
@@ -114,19 +71,23 @@ int main(int argc, char* argv[])
 				cerr << excp.what() << "\n";
 			}
 			break;
-		case Menu::DISPLAY:
-			m.display_students();
+		case Menu::DISPLAY_STUDENT:
+			std::cout << "URADITI ZA ODREDJENOG STUDENTA";
+		case Menu::HIGHEST:
+			m.display_highest_score();
 			break;
 		case Menu::DISPLAY_SORTED:
 			m.display_students_sorted();
 			break;
-		case Menu::HIGHEST:
-			m.display_highest_score();
+		case Menu::DISPLAY_ALL:
+			m.display_students();
+			break;
+		case Menu::WRITE_FILE:
+			m.write_students(output_path);
 			break;
 		}
 		m.display_menu();
 	} while (option != Menu::EXIT);
 	return 0;
 }
-
 //proslediti pathove kroz funkcije i otp uraditi citanje.

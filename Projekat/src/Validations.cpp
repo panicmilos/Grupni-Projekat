@@ -40,6 +40,9 @@ bool validate_type(std::string type)
  * Funkcija koja u isto vreme proverava broj parametara
  * komandne linije i zadati tip.
  *
+
+ * @param argc - broj argumenata komandne linije.
+ * @param argv - vrednost argumenata komandne linije.
  * @return Vraca true ako su oba uslova ispunjena a
  * u suprotnom vraca false.
  */

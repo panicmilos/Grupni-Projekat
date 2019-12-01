@@ -74,44 +74,39 @@ void Courses::display() const
  */
 void Courses::calc_final_score()
 {
-	const double points_from_quizzes = sum_grades_in_vector(quiz) / NUM_QUIZZES * QUIZ_WEIGHT;
-	const double points_from_hws = sum_grades_in_vector(homework) / NUM_HW * HOMEWORK_WEIGHT;
-	const double points_from_tests = sum_grades_in_vector(test) / NUM_TESTS * TEST_WEIGHT;
+	const double points_from_quizzes = sum_grades_in_vector(quiz) * QUIZ_WEIGHT / NUM_QUIZZES;
+	const double points_from_hws = sum_grades_in_vector(homework) * HOMEWORK_WEIGHT / NUM_HW;
+	const double points_from_tests = sum_grades_in_vector(test) * TEST_WEIGHT / NUM_TESTS;
 
 	final_score = round(points_from_quizzes + points_from_hws + points_from_tests);
 }
 
 /*
  * Funckija koja racuna znakovnu reprezentaciju konacne ocene studenta po pravilu:
- * [100, 91] = A
- * [90, 81] = B
- * [80, 71] = C
- * [70, 61] = D
- * [60, 51] = E
- * [50, 0] = F
+ * [100, 90] = A
+ * [89, 80] = B
+ * [79, 70] = C
+ * [69, 60] = D
+ * [59, 0] = F
  * Znak smesta u promenjivu letter_grade.
  */
 void Courses::calc_letter_grade()
 {
-	if (final_score >= 91)
+	if (final_score >= 90)
 	{
 		letter_grade = 'A';
 	}
-	else if (final_score >= 81)
+	else if (final_score >= 80)
 	{
 		letter_grade = 'B';
 	}
-	else if (final_score >= 71)
+	else if (final_score >= 70)
 	{
 		letter_grade = 'C';
 	}
-	else if (final_score >= 61)
+	else if (final_score >= 60)
 	{
 		letter_grade = 'D';
-	}
-	else if (final_score >= 51)
-	{
-		letter_grade = 'E';
 	}
 	else
 	{
@@ -132,5 +127,29 @@ std::ostream& operator <<(std::ostream& out, const Courses& c)
 // @throws se koristi za exceptione ako baca.
 std::istream& operator >>(std::istream& in, Courses& c)
 {
+	for (int i = 0; i < 6; i++)
+	{
+		int bodovi;
+		in >> bodovi;
+		c.homework.push_back(bodovi);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		int bodovi;
+		in >> bodovi;
+		c.test.push_back(bodovi);
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		int bodovi;
+		in >> bodovi;
+		c.quiz.push_back(bodovi);
+	}
+
+	c.calc_final_score();
+	c.calc_letter_grade();
+
 	return in;
 }

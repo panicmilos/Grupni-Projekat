@@ -71,7 +71,7 @@ void Student::display() const
  */
 std::ostream& operator <<(std::ostream& out, const Student& s)
 {
-	return out << s.ID << " - " << s.first_name << " " << s.last_name;
+	return out << s.ID << " " << s.first_name << " " << s.last_name;
 }
 
 // Dodati dokumentaciju

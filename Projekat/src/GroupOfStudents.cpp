@@ -33,10 +33,7 @@ const std::vector<StudentCourses>& GroupOfStudents::get_student_courses() const
 
 void GroupOfStudents::display() const
 {
-	for (StudentCourses sc : st_vec)
-	{
-		std::cout << sc;
-	}
+	std::cout << *this;
 }
 
 void GroupOfStudents::display_sorted() const
@@ -47,23 +44,29 @@ void GroupOfStudents::display_highest() const
 {
 }
 
-void GroupOfStudents::write_to_file() const
+void GroupOfStudents::write_to_file(std::ofstream& out) const
 {
+	// sortitaj po indexu.
+	// vector stavi u neki temp a sortirano ovde
+	out << *this;
 }
 
 std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof)
 {
+	for (StudentCourses sc : gof.st_vec)
+	{
+		out << sc << "\n";
+	}
+
 	return out;
 }
 
 std::istream& operator >>(std::istream& in, GroupOfStudents& gof)
 {
-	StudentCourses sc;
-
-	while (in >> sc)
+	while (!in.eof())
 	{
-		// ako je sve ok a ako nije greska neka nesto.
-
+		StudentCourses sc;
+		in >> sc;
 		gof.st_vec.push_back(sc);
 	}
 
