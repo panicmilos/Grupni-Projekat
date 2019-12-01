@@ -6,8 +6,6 @@
 // Description : C++ group project
 //============================================================================
 
-//  Your code starts here
-
 #include "Menu.h"
 
 Menu::Menu()

@@ -1,15 +1,9 @@
 #pragma once
-
-// genericka staticka metoda sort kojoj se prosledi vektor i vektor se menja
-
-// metoda merge
-
-// divide?
-
-// camelCase
+#include <vector>
 
 class MergeSort
 {
 public:
-	template <typedef T> void static sort(std::vector<T>& st_vec);
+	template <typename T>
+	void static merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(T, T), int begin, int end);
 };
