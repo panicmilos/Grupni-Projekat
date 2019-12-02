@@ -142,7 +142,8 @@ std::ostream& operator <<(std::ostream& out, const Courses& c)
 // @throws se koristi za exceptione ako baca.
 std::istream& operator >>(std::istream& in, Courses& c)
 {
-	parse_int_line(in, c.homework, 5);
+	in.get();
+	parse_int_line(in, c.homework, 6);
 	parse_int_line(in, c.test, 4);
 	parse_int_line(in, c.quiz, 10);
 

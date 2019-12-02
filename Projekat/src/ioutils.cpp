@@ -43,23 +43,19 @@ std::string find_output_path(int argc, char* argv[])
 }
 
 void parse_int_line(std::istream& in, std::vector<int> &vec, int max_size) {
+	int i = 0;
 	std::string line;
 	int points;
 	getline(in, line);
 	std::istringstream s(line);
 	while (s >> points) {
-		if (!check_range(points)) {
+		if (!check_range(points) || i >= max_size) {
 			in.setstate(std::ios::failbit);
 			break;
 		}
 		else {
-			vec.push_back(points);
+			vec[i] = points;
 		}
-	}
-	if (vec.size() > max_size) {
-		in.setstate(std::ios::failbit);
-	}
-	while (vec.size() <= max_size) {
-		vec.push_back(0);
+		i++;
 	}
 }

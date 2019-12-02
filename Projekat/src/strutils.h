@@ -11,4 +11,4 @@
 #include <string>
 
 int find_last_char_in_string(std::string str, char c);
-int count_words(std::string& str);
+int count_words(std::string str);

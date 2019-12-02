@@ -30,7 +30,7 @@ int find_last_char_in_string(std::string str, char c)
 	return -1;
 }
 
-int count_words(std::string& str) {
+int count_words(std::string str) {
 	int count = 0;
 	std::string word;
 	std::istringstream s(str);
