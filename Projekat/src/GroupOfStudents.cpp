@@ -1,22 +1,35 @@
 //============================================================================
-// File Name   : GroupOfStudents.cpp
-// Authors     : You
-// Version     : 1.0
-// Copyright   : Your copyright notice (if applicable)
-// Description : C++ group project
+// File Name	   : GroupOfStudents.cpp
+// Authors		   : Milos Panic, Dejan Todorovic
+// Created         : 29.11.2019.
+// Last Modified   : 02.12.2019. By Milos Panic
+// Version         : 1.0
+// Description     : Ovaj klasa predstavlja kolekciju klasa StudentCourses
+// i sadrzi funckije za rad nad kolekcijom kao sto su trazenje najboljih,
+// prikaz studenata, prikaz sortiranih studenata, citanje i pisanje u
+// fajlove, ...
 //============================================================================
 
 #include "GroupOfStudents.h"
 
+/*
+ * Podrazumevani konstruktor.
+ */
 GroupOfStudents::GroupOfStudents()
 {
 }
 
-GroupOfStudents::GroupOfStudents(const std::vector< StudentCourses >& v) :
+/*
+ * Konstruktor sa parametrima.
+ */
+GroupOfStudents::GroupOfStudents(const std::vector<StudentCourses>& v) :
 	st_vec(v)
 {
 }
 
+/*
+ * Konstruktor kopije.
+ */
 GroupOfStudents::GroupOfStudents(const GroupOfStudents& gof) :
 	st_vec(gof.st_vec)
 {
@@ -26,31 +39,65 @@ void GroupOfStudents::search_for_highest(std::vector<int>& indices_max) const
 {
 }
 
+/*
+ * Getter za student_courses.
+ */
 const std::vector<StudentCourses>& GroupOfStudents::get_student_courses() const
 {
 	return st_vec;
 }
 
+/*
+ * Funkcija ispisuje sve studente zajedno sa njihovim ocenama na standardnom ulazu.
+ * Ispis za svakog studenta je u formatu:
+ * br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene
+*/
 void GroupOfStudents::display() const
 {
 	std::cout << *this;
 }
 
+/*
+ * Funkcija ispisuje sve studente zajedno sa njihovim ocenama na standardnom ulazu.
+ * Studenti su sortirani prema alfabetnom redu i to prvo prezime, ime pa tek onda
+ * broj indexa.
+ * Ispis za svakog studenta je u formatu:
+ * br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene
+*/
 void GroupOfStudents::display_sorted() const
 {
+	const std::vector<StudentCourses> vector_copy(st_vec);
+
+	MergeSort::merge_sort<StudentCourses>(st_vec, alphabetical_comparator);
+	display();
+	st_vec = vector_copy;
 }
 
 void GroupOfStudents::display_highest() const
 {
 }
 
+/*
+ * Funkcija ispisuje sve studente zajedno sa njihovim ocenama u izlazni tok.
+ * Studenti su sortirani prema broju indexa
+ * Ispis za svakog studenta je u formatu:
+ * br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene
+ * @param out - izlazni tok na kojem se cuvaju studenti.
+*/
 void GroupOfStudents::write_to_file(std::ofstream& out) const
 {
-	// sortitaj po indexu.
-	// vector stavi u neki temp a sortirano ovde
+	const std::vector<StudentCourses> vector_copy(st_vec);
+
+	MergeSort::merge_sort<StudentCourses>(st_vec, id_comparator);
 	out << *this;
+	st_vec = vector_copy;
 }
 
+/*
+ * Preklapanje operatora << za ispis svih studenata na izlaze.
+ * Ispis je u formatu:
+ * br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene
+ */
 std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof)
 {
 	for (StudentCourses sc : gof.st_vec)

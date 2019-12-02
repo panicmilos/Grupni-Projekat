@@ -79,5 +79,6 @@
     <Text Include="res\input1.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="res\output.txt" />
   </ItemGroup>
 </Project>

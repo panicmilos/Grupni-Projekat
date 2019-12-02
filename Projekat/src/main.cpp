@@ -10,6 +10,7 @@
 #include "Menu.h"
 #include "Validations.h"
 #include "ioutils.h"
+#include <sstream>
 
 using namespace std;
 
@@ -27,10 +28,11 @@ int main(int argc, char* argv[])
 
 	Menu m;
 	int option;
-	m.display_menu();
 
 	do
 	{
+		m.display_menu();
+
 		cout << "> ";
 		while (!(cin >> option) || option < 1 || option > Menu::EXIT)
 		{
@@ -86,8 +88,8 @@ int main(int argc, char* argv[])
 			m.write_students(output_path);
 			break;
 		}
-		m.display_menu();
 	} while (option != Menu::EXIT);
 	return 0;
 }
-//proslediti pathove kroz funkcije i otp uraditi citanje.
+
+// Srediti dokumentaciju za out streeam

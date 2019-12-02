@@ -12,16 +12,18 @@
 #include <fstream>
 #include <vector>
 #include "StudentCourses.h"
+#include "Sorter.h"
+#include "Sorter.cpp"
 
 class GroupOfStudents
 {
 private:
-	std::vector<StudentCourses> st_vec;
+	mutable std::vector<StudentCourses> st_vec;
 	void search_for_highest(std::vector<int>& indices_max) const; // utility
 
 public:
 	GroupOfStudents();
-	GroupOfStudents(const std::vector< StudentCourses >& v);
+	GroupOfStudents(const std::vector<StudentCourses>& v);
 	GroupOfStudents(const GroupOfStudents& gof);
 
 	// add required methods
