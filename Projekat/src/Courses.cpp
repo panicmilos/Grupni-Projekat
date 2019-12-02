@@ -11,9 +11,6 @@
 //============================================================================
 
 #include "Courses.h"
-#include "ioutils.h"
-#include <string>
-#include <sstream>
 
 /*
  * Podrazumevani konstruktor.
@@ -142,13 +139,14 @@ std::ostream& operator <<(std::ostream& out, const Courses& c)
 // @throws se koristi za exceptione ako baca.
 std::istream& operator >>(std::istream& in, Courses& c)
 {
-	in.get();
-	parse_int_line(in, c.homework, 6);
-	parse_int_line(in, c.test, 4);
-	parse_int_line(in, c.quiz, 10);
+	parse_int_line(in, c.homework, Courses::NUM_HW);
+	parse_int_line(in, c.test, Courses::NUM_TESTS);
+	parse_int_line(in, c.quiz, Courses::NUM_QUIZZES);
 
 	c.calc_final_score();
 	c.calc_letter_grade();
 
 	return in;
 }
+
+// dodati calculate funkciju koja poziva ona dva;

@@ -7,11 +7,9 @@
 //============================================================================
 
 #include <iostream>
-#include <fstream>
 #include "Menu.h"
 #include "Validations.h"
 #include "ioutils.h"
-#include <sstream>
 
 using namespace std;
 
@@ -75,7 +73,7 @@ int main(int argc, char* argv[])
 			}
 			break;
 		case Menu::DISPLAY_STUDENT:
-			std::cout << "URADITI ZA ODREDJENOG STUDENTA";
+			std::cout << "URADITI ZA ODREdDJENOG STUDENTA";
 		case Menu::HIGHEST:
 			m.display_highest_score();
 			break;

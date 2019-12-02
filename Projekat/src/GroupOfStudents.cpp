@@ -114,6 +114,12 @@ std::istream& operator >>(std::istream& in, GroupOfStudents& gof)
 	{
 		StudentCourses sc;
 		in >> sc;
+
+		if (in.fail())
+		{
+			break;
+		}
+
 		gof.st_vec.push_back(sc);
 	}
 

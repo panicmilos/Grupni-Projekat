@@ -12,6 +12,9 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include "ioutils.h"
+#include <string>
+#include <sstream>
 
 class Courses
 {

@@ -8,9 +8,7 @@
 // tokom kao sto su otvaranje toka i pronalazenje izlazne putanje.
 //============================================================================
 
-#include <sstream>
 #include "ioutils.h"
-#include "Validations.h"
 
 /*
  * Funkcija odredjuje izlaznu putanju na osnovu ulaznih parametara. Ukoliko
@@ -42,20 +40,25 @@ std::string find_output_path(int argc, char* argv[])
 	}
 }
 
-void parse_int_line(std::istream& in, std::vector<int> &vec, int max_size) {
+void parse_int_line(std::istream& in, std::vector<int>& vec, int max_size) {
 	int i = 0;
+	int points = 0;
+
 	std::string line;
-	int points;
 	getline(in, line);
-	std::istringstream s(line);
-	while (s >> points) {
-		if (!check_range(points) || i >= max_size) {
-			in.setstate(std::ios::failbit);
+	std::istringstream sstream(line);
+
+	std::string temp;
+	while (!sstream.eof())
+	{
+		sstream >> points;
+
+		if (sstream.fail() || !check_range(points) || i >= max_size)
+		{
+			in.setstate(std::ios_base::failbit);
 			break;
 		}
-		else {
-			vec[i] = points;
-		}
-		i++;
+
+		vec[i++] = points;
 	}
 }

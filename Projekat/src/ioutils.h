@@ -12,6 +12,8 @@
 #include <string>
 #include "strutils.h"
 #include <vector>
+#include <sstream>
+#include "Validations.h"
 
 #define DEFAULT_OUTPUT_NAME "default_output_name.txt";
 

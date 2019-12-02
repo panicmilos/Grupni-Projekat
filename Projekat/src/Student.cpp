@@ -8,9 +8,8 @@
 // prezimenom i indexom. Poseduje funkcija za prikazivanje, ucitavanje i
 // ispis klase.
 //============================================================================
+
 #include "Student.h"
-#include "strutils.h"
-#include <sstream>
 
 /*
  * Podrazumevani konstruktor.
@@ -80,15 +79,20 @@ std::ostream& operator <<(std::ostream& out, const Student& s)
 // @throws se koristi za exceptione ako baca.
 std::istream& operator >>(std::istream& in, Student& s)
 {
-	//std::string line;
-	//getline(in, line);
-	/*if (count_words(line) != 3) {
+	std::string line_from_file;
+	getline(in, line_from_file);
+
+	if (count_words(line_from_file) != 3)
+	{
 		in.setstate(std::ios::failbit);
-		return in;
-	}*/
-	//else {
-	return in >> s.first_name >> s.last_name >> s.ID;
-	//}
+	}
+	else
+	{
+		std::istringstream sstream(line_from_file);
+		sstream >> s.first_name >> s.last_name >> s.ID;
+	}
+
+	return in;
 }
 
 // overload >= <= i napravi sorter kao posebnu /obicnu/ klasu koja prima vektore bilo cega i sortira ih
