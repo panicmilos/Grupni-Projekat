@@ -24,7 +24,7 @@ bool comp(int i, int j) {
 
 int main(int argc, char* argv[])
 {
-	std::vector<int> v = { 5, 9, 3, 7, 6 };
+	std::vector<int> v = {0, 8, 7, 6, 4 };
 	MergeSort::merge_sort<int>(v, comp);
 
 	for (int i = 0; i < 5; ++i) {
