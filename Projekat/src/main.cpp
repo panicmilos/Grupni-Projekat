@@ -73,7 +73,8 @@ int main(int argc, char* argv[])
 			}
 			break;
 		case Menu::DISPLAY_STUDENT:
-			std::cout << "URADITI ZA ODREdDJENOG STUDENTA";
+			m.display_student();
+			break;
 		case Menu::HIGHEST:
 			m.display_highest_score();
 			break;

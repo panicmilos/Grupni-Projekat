@@ -52,6 +52,13 @@ void Menu::read_students(std::string input_path)
 	in.close();
 }
 
+void Menu::display_student() const {
+	std::string id;
+	std::cout << "Unesite indeks: ";
+	std::cin >> id;
+	gs.display_one_student(id);
+}
+
 void Menu::display_students() const
 {
 	gs.display();

@@ -37,6 +37,7 @@ public:
 	void display_menu() const;
 	void display_info() const;
 	void read_students(std::string input_path);
+	void display_student() const;
 	void display_students() const;
 	void display_students_sorted() const;
 	void display_highest_score() const;

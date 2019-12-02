@@ -20,6 +20,7 @@ class GroupOfStudents
 private:
 	mutable std::vector<StudentCourses> st_vec;
 	void search_for_highest(std::vector<int>& indices_max) const; // utility
+	Student* find_by_id(std::string& id) const;
 
 public:
 	GroupOfStudents();
@@ -33,6 +34,7 @@ public:
 	void display_sorted() const;
 	void display_highest() const;
 	void write_to_file(std::ofstream& out) const;
+	void display_one_student(std::string& id) const;
 
 	friend std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof);
 	friend std::istream& operator >>(std::istream& in, GroupOfStudents& gof);
