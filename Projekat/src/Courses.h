@@ -49,6 +49,9 @@ public:
 	void display() const;
 	void calc_final_score();
 	void calc_letter_grade();
+	std::vector<int> get_quiz();
+	std::vector<int> get_homework();
+	std::vector<int> get_test();
 
 	friend std::ostream& operator <<(std::ostream& out, const Courses& c);
 	friend std::istream& operator >>(std::istream& in, Courses& c);

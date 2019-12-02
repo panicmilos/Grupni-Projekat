@@ -50,3 +50,8 @@ bool validate_arguments(int argc, char* argv[])
 {
 	return validate_num_of_args(argc) && validate_type(argv[2]);
 }
+
+inline bool check_range(int points)
+{
+	return points <= 100 && points >= 0;
+}

@@ -7,7 +7,10 @@
 // Description     : Ovaj moduo sadrzi sve dodatne funkcije nad ulazno/izlaznim
 // tokom kao sto su otvaranje toka i pronalazenje izlazne putanje.
 //============================================================================
+
+#include <sstream>
 #include "ioutils.h"
+#include "Validations.h"
 
 /*
  * Funkcija odredjuje izlaznu putanju na osnovu ulaznih parametara. Ukoliko
@@ -36,5 +39,27 @@ std::string find_output_path(int argc, char* argv[])
 	else
 	{
 		return DEFAULT_OUTPUT_NAME;
+	}
+}
+
+void parse_int_line(std::istream& in, std::vector<int> &vec, int max_size) {
+	std::string line;
+	int points;
+	getline(in, line);
+	std::istringstream s(line);
+	while (s >> points) {
+		if (!check_range(points)) {
+			in.setstate(std::ios::failbit);
+			break;
+		}
+		else {
+			vec.push_back(points);
+		}
+	}
+	if (vec.size() > max_size) {
+		in.setstate(std::ios::failbit);
+	}
+	while (vec.size() <= max_size) {
+		vec.push_back(0);
 	}
 }

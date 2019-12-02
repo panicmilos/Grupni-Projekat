@@ -7,6 +7,7 @@
 //============================================================================
 
 #include <iostream>
+#include <fstream>
 #include "Menu.h"
 #include "Validations.h"
 #include "ioutils.h"

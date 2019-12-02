@@ -11,6 +11,9 @@
 //============================================================================
 
 #include "Courses.h"
+#include "ioutils.h"
+#include <string>
+#include <sstream>
 
 /*
  * Podrazumevani konstruktor.
@@ -57,6 +60,18 @@ int Courses::sum_grades_in_vector(const std::vector<int>& grades) const
 double Courses::get_final_score() const
 {
 	return final_score;
+}
+
+std::vector<int> Courses::get_homework() {
+	return homework;
+}
+
+std::vector<int> Courses::get_quiz() {
+	return quiz;
+}
+
+std::vector<int> Courses::get_test() {
+	return test;
 }
 
 /*
@@ -127,26 +142,9 @@ std::ostream& operator <<(std::ostream& out, const Courses& c)
 // @throws se koristi za exceptione ako baca.
 std::istream& operator >>(std::istream& in, Courses& c)
 {
-	for (int i = 0; i < 6; i++)
-	{
-		int bodovi;
-		in >> bodovi;
-		c.homework.push_back(bodovi);
-	}
-
-	for (int i = 0; i < 4; i++)
-	{
-		int bodovi;
-		in >> bodovi;
-		c.test.push_back(bodovi);
-	}
-
-	for (int i = 0; i < 10; i++)
-	{
-		int bodovi;
-		in >> bodovi;
-		c.quiz.push_back(bodovi);
-	}
+	parse_int_line(in, c.homework, 5);
+	parse_int_line(in, c.test, 4);
+	parse_int_line(in, c.quiz, 10);
 
 	c.calc_final_score();
 	c.calc_letter_grade();
