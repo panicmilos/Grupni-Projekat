@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="res\binary_input_creation.cpp" />
     <ClCompile Include="src\Courses.cpp" />
     <ClCompile Include="src\GroupOfStudents.cpp" />
     <ClCompile Include="src\ioutils.cpp" />

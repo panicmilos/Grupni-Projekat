@@ -15,6 +15,7 @@
 #include "ioutils.h"
 #include <string>
 #include <sstream>
+#include <fstream>
 
 class Courses
 {
@@ -49,9 +50,13 @@ public:
 
 	// utility functions
 	double get_final_score() const;
-	void display() const;
+	void do_calculations();
 	void calc_final_score();
 	void calc_letter_grade();
+	void display() const;
+	void write_to_binary_file(std::ofstream& out) const;
+	void read_from_binary_file(std::ifstream& in);
+
 	std::vector<int> get_quiz();
 	std::vector<int> get_homework();
 	std::vector<int> get_test();

@@ -40,6 +40,24 @@ std::string find_output_path(int argc, char* argv[])
 	}
 }
 
+void remove_type_extension(std::string& output_path)
+{
+	const int index = find_last_char_in_string(output_path, '.');
+
+	if (index != -1)
+	{
+		output_path = output_path.substr(0, index);
+	}
+}
+
+std::string get_output_path(int argc, char* argv[])
+{
+	std::string outputh_path = find_output_path(argc, argv);
+	remove_type_extension(outputh_path);
+
+	return outputh_path;
+}
+
 void parse_int_line(std::istream& in, std::vector<int>& vec, int max_size) {
 	int i = 0;
 	int points = 0;

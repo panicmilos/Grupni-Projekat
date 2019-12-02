@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include "strutils.h"
+#include <fstream>
 
 class Student
 {
@@ -29,6 +30,8 @@ public:
 	std::string get_last_name() const;
 	std::string get_id() const;
 	void display() const;
+	void write_to_binary_file(std::ofstream& out) const;
+	void read_from_binary_file(std::ifstream& in) const;
 
 	friend std::ostream& operator <<(std::ostream& out, const Student& s);
 	friend std::istream& operator >>(std::istream& in, Student& s);

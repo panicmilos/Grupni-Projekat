@@ -26,8 +26,7 @@ Courses::Courses() :
 Courses::Courses(const std::vector<int>& q, const std::vector<int>& h, const std::vector<int>& t)
 	: quiz(q), homework(h), test(t), final_score(0), letter_grade('F')
 {
-	calc_final_score();
-	calc_letter_grade();
+	do_calculations();
 }
 
 /*
@@ -79,6 +78,21 @@ void Courses::display() const
 	std::cout << *this;
 }
 
+void Courses::write_to_binary_file(std::ofstream& out) const
+{
+	out.write((char*)&final_score, sizeof(double));
+	out.write((char*)&letter_grade, sizeof(char));
+}
+
+void Courses::read_from_binary_file(std::ifstream& in)
+{
+	in.read((char*)&homework[0], Courses::NUM_HW * sizeof(int));
+	in.read((char*)&test[0], Courses::NUM_TESTS * sizeof(int));
+	in.read((char*)&quiz[0], Courses::NUM_QUIZZES * sizeof(int));
+
+	do_calculations();
+}
+
 /*
  * Funkcija koja racuna zavrsnu ocenu studenta na osnovu njegovih rezultata
  * sa kvizova, testova i domacih zadataka i smesta u promenjivu final_score.
@@ -126,6 +140,11 @@ void Courses::calc_letter_grade()
 	}
 }
 
+void Courses::do_calculations()
+{
+	calc_final_score();
+	calc_letter_grade();
+}
 /*
  * Preklapanje operatora << za ispis na izlaze.
  * Ispis je u formatu: zavrsna_ocena znakovna_reprezentacija_ocene
@@ -143,8 +162,7 @@ std::istream& operator >>(std::istream& in, Courses& c)
 	parse_int_line(in, c.test, Courses::NUM_TESTS);
 	parse_int_line(in, c.quiz, Courses::NUM_QUIZZES);
 
-	c.calc_final_score();
-	c.calc_letter_grade();
+	c.do_calculations();
 
 	return in;
 }

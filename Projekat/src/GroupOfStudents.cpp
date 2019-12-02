@@ -93,6 +93,41 @@ void GroupOfStudents::write_to_file(std::ofstream& out) const
 	st_vec = vector_copy;
 }
 
+void GroupOfStudents::write_to_binary_file(std::ofstream& out) const
+{
+	const std::vector<StudentCourses> vector_copy(st_vec);
+
+	MergeSort::merge_sort<StudentCourses>(st_vec, id_comparator);
+
+	for (StudentCourses sc : st_vec)
+	{
+		sc.write_to_binary_file(out);
+	}
+
+	st_vec = vector_copy;
+}
+
+void GroupOfStudents::read_from_binary_file(std::ifstream& in) const
+{
+	while (!in.eof())
+	{
+		StudentCourses sc;
+
+		sc.read_from_binary_file(in);
+
+		if (in.fail())
+		{
+			if (in.eof())
+			{
+				in.clear();
+			}
+			break;
+		}
+
+		st_vec.push_back(sc);
+	}
+}
+
 /*
  * Preklapanje operatora << za ispis svih studenata na izlaze.
  * Ispis je u formatu:
@@ -113,6 +148,7 @@ std::istream& operator >>(std::istream& in, GroupOfStudents& gof)
 	while (!in.eof())
 	{
 		StudentCourses sc;
+
 		in >> sc;
 
 		if (in.fail())

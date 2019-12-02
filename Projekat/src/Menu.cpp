@@ -33,7 +33,7 @@ void Menu::display_info() const
 		<< "Milos Panic (sw19-2018)\n";
 }
 
-void Menu::read_students(std::string input_path)
+void Menu::read_students_from_txt(std::string input_path)
 {
 	std::ifstream in(input_path);
 
@@ -52,6 +52,46 @@ void Menu::read_students(std::string input_path)
 	in.close();
 }
 
+void Menu::read_students_from_binary(std::string input_path)
+{
+	std::ifstream in(input_path, std::ios::binary);
+
+	if (!in.is_open())
+	{
+		throw InvalidFile();
+	}
+
+	gs.read_from_binary_file(in);
+
+	if (in.fail())
+	{
+		std::cout << "fail sam";
+		throw InvalidData();
+	}
+
+	in.close();
+}
+
+void Menu::read_students(std::string input_path, std::string type)
+{
+	try
+	{
+		if (type == "t")
+		{
+			read_students_from_txt(input_path);
+		}
+		else
+		{
+			read_students_from_binary(input_path);
+		}
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what();
+		throw e;
+	}
+}
+
 void Menu::display_students() const
 {
 	gs.display();
@@ -67,11 +107,24 @@ void Menu::display_highest_score() const
 	gs.display_highest();
 }
 
-void Menu::write_students(std::string output_path)
+void Menu::write_students(std::string output_path, std::string mode)
 {
-	std::ofstream out(output_path);
+	if (mode == "b")
+	{
+		write_students_to_binary_file(output_path);
+	}
+	std::ofstream out(output_path + ".txt");
 
 	gs.write_to_file(out);
+
+	out.close();
+}
+
+void Menu::write_students_to_binary_file(std::string output_path)
+{
+	std::ofstream out(output_path + ".bin", std::ios::binary | std::ios::out);
+
+	gs.write_to_binary_file(out);
 
 	out.close();
 }

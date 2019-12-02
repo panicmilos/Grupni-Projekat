@@ -1,4 +1,3 @@
-sw04/2018 Milos Jankov 92 A
-sw08/2018 Zoran Jankov 92 A
+sw08/2018 Zoran Jankov 77 C
 sw17/2018 Dejan Todorovic 96 A
 sw19/2018 Milos Panic 97 A

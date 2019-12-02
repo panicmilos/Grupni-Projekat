@@ -15,7 +15,9 @@
 #include <sstream>
 #include "Validations.h"
 
-#define DEFAULT_OUTPUT_NAME "default_output_name.txt";
+#define DEFAULT_OUTPUT_NAME "default_output_name";
 
 std::string find_output_path(int argc, char* argv[]);
+void remove_type_extension(std::string& output_path);
+std::string get_output_path(int argc, char* argv[]);
 void parse_int_line(std::istream& in, std::vector<int>& vec, int max_size);

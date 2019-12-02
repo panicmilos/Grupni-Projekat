@@ -66,6 +66,16 @@ void Student::display() const
 	std::cout << *this;
 }
 
+void Student::write_to_binary_file(std::ofstream& out) const
+{
+	out.write((char*)this, sizeof(Student));
+}
+
+void Student::read_from_binary_file(std::ifstream& in) const
+{
+	in.read((char*)this, sizeof(Student));
+}
+
 /*
  * Preklapanje operatora << za ispis na izlaze.
  * Ispis je u formatu: br_indexa ime prezime

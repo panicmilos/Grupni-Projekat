@@ -27,6 +27,8 @@ public:
 	Student get_student() const;
 	double get_final_score() const;
 	void display() const;
+	void write_to_binary_file(std::ofstream& out) const;
+	void read_from_binary_file(std::ifstream& in);
 
 	friend bool alphabetical_comparator(const StudentCourses& sc1, const StudentCourses& sc2);
 	friend bool id_comparator(const StudentCourses& sc1, const StudentCourses& sc2);

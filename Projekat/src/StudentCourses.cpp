@@ -58,6 +58,18 @@ void StudentCourses::display() const
 	std::cout << *this;
 }
 
+void StudentCourses::write_to_binary_file(std::ofstream& out) const
+{
+	student.write_to_binary_file(out);
+	courses.write_to_binary_file(out);
+}
+
+void StudentCourses::read_from_binary_file(std::ifstream& in)
+{
+	student.read_from_binary_file(in);
+	courses.read_from_binary_file(in);
+}
+
 /*
  * Komparator funkcija koja poredi dva prezimena dva studenta. Ako su ima prezimena
  * ista onda poredi imena a ako su i imena ista onda poredi indexe. Koristi se kao

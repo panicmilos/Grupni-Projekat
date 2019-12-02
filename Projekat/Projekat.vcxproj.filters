@@ -45,6 +45,9 @@
     <ClCompile Include="src\ioutils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="res\binary_input_creation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Courses.h">
@@ -79,6 +82,8 @@
     <Text Include="res\input1.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="res\output.txt" />
+    <Text Include="res\output.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
