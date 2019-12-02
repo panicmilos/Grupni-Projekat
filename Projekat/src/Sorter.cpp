@@ -18,16 +18,20 @@ Funckija koja sortira vector elemenata po zadatom kriterijmu
 TODO: nisam siguran kako dokumentovati ovo
 */
 template <typename T>
-void static MergeSort::merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(T, T)) {
+void static MergeSort::merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(T, T))
+{
 	// zauzmemo memoriju velicine vec.size() i u tom delu vrsimo spajanje nizova
 	std::vector<T> pom(vec.size());
 	merge_sort_loop(vec, pom, comparison_fcn, 0, vec.size() - 1);
 }
 
 template <typename T>
-void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& pom, bool (*comparison_fcn)(T, T), int begin, int end) {
-	if (begin < end) {
+void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& pom, bool (*comparison_fcn)(T, T), int begin, int end)
+{
+	if (begin < end)
+	{
 		int middle = (end + begin) / 2;
+
 		merge_sort_loop(vec, pom, comparison_fcn, begin, middle);
 		merge_sort_loop(vec, pom, comparison_fcn, middle + 1, end);
 		merge(vec, pom, comparison_fcn, begin, middle, end);
@@ -35,7 +39,8 @@ void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& pom, bool (
 }
 
 template<typename T>
-void MergeSort::merge(std::vector<T>& vec, std::vector<T>& pom, bool(*comparison_fcn)(T, T), int begin, int middle, int end) {
+void MergeSort::merge(std::vector<T>& vec, std::vector<T>& pom, bool(*comparison_fcn)(T, T), int begin, int middle, int end)
+{
 	int i = begin;
 	int j = middle + 1;
 	int k = begin;

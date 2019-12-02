@@ -13,6 +13,8 @@
 #include <stdexcept>
 #include "GroupOfStudents.h"
 #include <fstream>
+#include "Sorter.h"
+#include "Sorter.cpp"
 
 class Menu
 {
