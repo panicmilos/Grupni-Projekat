@@ -46,6 +46,24 @@ void MergeSort::merge(std::vector<T>& vec, std::vector<T>& pom, bool(*comparison
 	int k = begin;
 
 	while (i <= middle && j <= end) {
+		pom[k++] = (comparison_fcn(vec[i], vec[j])) ? vec[j++] : vec[i++];
+	}
+
+	typename std::vector<T>::iterator it = pom.begin() + k;
+	std::move(vec.begin() + i, vec.begin() + middle + 1, it);
+	std::move(vec.begin() + j, vec.begin() + end + 1, it);
+	std::move(pom.begin() + begin, pom.begin() + end + 1, vec.begin() + begin);
+}
+
+/*
+template<typename T>
+void MergeSort::merge(std::vector<T>& vec, std::vector<T>& pom, bool(*comparison_fcn)(T, T), int begin, int middle, int end)
+{
+	int i = begin;
+	int j = middle + 1;
+	int k = begin;
+
+	while (i <= middle && j <= end) {
 		if (comparison_fcn(vec[i], vec[j])) {
 			pom[k] = vec[j];
 			j++;
@@ -70,3 +88,4 @@ void MergeSort::merge(std::vector<T>& vec, std::vector<T>& pom, bool(*comparison
 		vec[k] = pom[k];
 	}
 }
+*/
