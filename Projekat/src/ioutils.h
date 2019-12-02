@@ -11,7 +11,9 @@
 #pragma once
 #include <string>
 #include "strutils.h"
+#include <vector>
 
 #define DEFAULT_OUTPUT_NAME "default_output_name.txt";
 
 std::string find_output_path(int argc, char* argv[]);
+void parse_int_line(std::istream& in, std::vector<int>& vec, int max_size);

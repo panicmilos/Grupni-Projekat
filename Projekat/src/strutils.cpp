@@ -7,6 +7,7 @@
 // Description     : Ovaj moduo sadrzi sve dodatne funkcije nad stringovima.
 //============================================================================
 #include "strutils.h"
+#include <sstream>
 
 /*
  * Funkcija trazi poslednje pojavljivanje zadatog karaktera u zadatom stringu.
@@ -27,4 +28,14 @@ int find_last_char_in_string(std::string str, char c)
 	}
 
 	return -1;
+}
+
+int count_words(std::string& str) {
+	int count = 0;
+	std::string word;
+	std::istringstream s(str);
+	while (s >> word) {
+		count++;
+	}
+	return count;
 }
