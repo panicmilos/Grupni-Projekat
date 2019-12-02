@@ -128,6 +128,29 @@ void GroupOfStudents::read_from_binary_file(std::ifstream& in) const
 	}
 }
 
+Student* GroupOfStudents::find_by_id(std::string& id) const {
+	Student* s = new Student();
+	for (StudentCourses sc : st_vec) {
+		if (sc.get_student().get_id() == id) {
+			*s = sc.get_student();
+			return s;
+		}
+	}
+	return nullptr;
+}
+
+void GroupOfStudents::display_one_student(std::string& id) const
+{
+	Student* s = find_by_id(id);
+	if (s != nullptr) {
+		std::cout << *s << "\n";
+	}
+	else {
+		std::cout << "Ne postoji student sa unetim indeksom!\n";
+	}
+	delete s;
+}
+
 /*
  * Preklapanje operatora << za ispis svih studenata na izlaze.
  * Ispis je u formatu:

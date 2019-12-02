@@ -1,6 +1,6 @@
 //============================================================================
 // File Name       : Ssorter.cpp
-// Authors         : Dejan Todorovic
+// Authors         : Dejan Todorovic, Milos Panic
 // Created         : 01.12.2019.
 // Last Modified   : 02.12.2019. By Milos Panic
 // Version         : 1.0
