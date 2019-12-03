@@ -11,7 +11,26 @@
 
 #include "Menu.h"
 
+/*
+ * Podrazumevani konstruktor.
+ */
 Menu::Menu()
+{
+}
+
+/*
+ * Konstruktor sa parametrima.
+ */
+Menu::Menu(const GroupOfStudents& gos) :
+	gs(gos)
+{
+}
+
+/*
+ * Konstruktor kopije.
+ */
+Menu::Menu(const Menu& m) :
+	gs(m.gs)
 {
 }
 
