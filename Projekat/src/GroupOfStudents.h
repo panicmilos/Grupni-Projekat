@@ -18,6 +18,7 @@
 #include "StudentCourses.h"
 #include "Sorter.h"
 #include "Sorter.cpp"
+#include <set>
 
 class GroupOfStudents
 {
@@ -31,6 +32,7 @@ public:
 	GroupOfStudents(const std::vector<StudentCourses>& v);
 	GroupOfStudents(const GroupOfStudents& gof);
 
+	bool check_for_duplicates() const;
 	void display() const;
 	void display_sorted() const;
 	void display_highest() const;

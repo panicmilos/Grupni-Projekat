@@ -61,7 +61,7 @@ void Menu::read_students_from_txt(const std::string& input_path)
 
 	in >> gs;
 
-	if (in.fail())
+	if (in.fail() || gs.check_for_duplicates())
 	{
 		throw InvalidData();
 	}
@@ -90,7 +90,7 @@ void Menu::read_students_from_binary(const std::string& input_path)
 
 	gs.read_from_binary_file(in);
 
-	if (in.fail())
+	if (in.fail() || gs.check_for_duplicates())
 	{
 		throw InvalidData();
 	}

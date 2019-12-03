@@ -35,6 +35,26 @@ GroupOfStudents::GroupOfStudents(const GroupOfStudents& gof) :
 {
 }
 
+/*
+ * Funckija proverava da li medju ucitanim studentima ima
+ * dva sa istim brojem indexa.
+ *
+ * @return true u slucaju da ima dva ili vise studenta
+ * sa istim brojem indexa u suprotnom false ako su svi
+ * jedinstveni.
+*/
+bool GroupOfStudents::check_for_duplicates() const
+{
+	std::set <std::string> student_ids;
+
+	for (StudentCourses sc : st_vec)
+	{
+		student_ids.insert(sc.get_student().get_id());
+	}
+
+	return student_ids.size() != st_vec.size();
+}
+
 void GroupOfStudents::search_for_highest(std::vector<int>& indices_max) const
 {
 }
