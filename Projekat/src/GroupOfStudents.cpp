@@ -205,6 +205,7 @@ void GroupOfStudents::display_one_student(const std::string& id) const
 
 	if (s != nullptr)
 	{
+		std::cout << "Student sa zadatim indexom je:\n";
 		s->display();
 		delete s;
 	}

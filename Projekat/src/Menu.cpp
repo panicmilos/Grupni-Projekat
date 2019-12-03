@@ -156,6 +156,8 @@ void Menu::read_students(const std::string& input_path, const std::string& type)
 	{
 		throw e;
 	}
+
+	std::cout << "Studenti su uspesno ucitani.\n";
 }
 
 /*
@@ -178,6 +180,7 @@ void Menu::display_student() const
 */
 void Menu::display_students() const
 {
+	std::cout << "Svi studenti su: \n";
 	gs.display();
 }
 
@@ -187,6 +190,7 @@ void Menu::display_students() const
 */
 void Menu::display_students_sorted() const
 {
+	std::cout << "Studenti poredjani po alfabetu su: \n";
 	gs.display_sorted();
 }
 
@@ -217,6 +221,8 @@ void Menu::write_students(const std::string& output_path, const std::string& typ
 	gs.write_to_file(out);
 
 	out.close();
+
+	std::cout << "Studenti su uspesno sacuvani.\n";
 }
 
 /*
