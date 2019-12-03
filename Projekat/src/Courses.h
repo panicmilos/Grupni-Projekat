@@ -1,14 +1,19 @@
 //============================================================================
-// File Name   : Courses.h
-// Authors     : You
-// Version     : 1.0
-// Copyright   : Your copyright notice (if applicable)
-// Description : C++ group project
+// File Name	   : Courses.h
+// Authors		   : Milos Panic, Dejan Todorovic
+// Created         : 29.11.2019.
+// Last Modified   : 02.12.2019. By Milos Panic
+// Version         : 1.0
+// Description     : Klasa Courses koja cuva sve rezultate kvizova, domacih
+// zadataka i testova studenta. Cuva konacnu ocenu i njenu znakovu reprezentaciju
+// kao i funckije koje za racunanje istih. Poseduje funkcija za prikazivanje,
+// ucitavanje i ispis klase.
 //============================================================================
 
 #ifndef COURSES_H_
 #define COURSES_H_
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <numeric>
@@ -41,15 +46,13 @@ private:
 
 	// sum of grades in vector
 	int sum_grades_in_vector(const std::vector<int>& grades) const;
+	bool check_grades() const;
 
 public:
-	// constructors
 	Courses();
 	Courses(const std::vector<int>& q, const std::vector<int>& h, const std::vector<int>& t);
 	Courses(const Courses& c);
 
-	// utility functions
-	double get_final_score() const;
 	void do_calculations();
 	void calc_final_score();
 	void calc_letter_grade();
@@ -57,9 +60,10 @@ public:
 	void write_to_binary_file(std::ofstream& out) const;
 	void read_from_binary_file(std::ifstream& in);
 
-	std::vector<int> get_quiz();
-	std::vector<int> get_homework();
-	std::vector<int> get_test();
+	double get_final_score() const;
+	std::vector<int> get_quiz() const;
+	std::vector<int> get_homework() const;
+	std::vector<int> get_test() const;
 
 	friend std::ostream& operator <<(std::ostream& out, const Courses& c);
 	friend std::istream& operator >>(std::istream& in, Courses& c);

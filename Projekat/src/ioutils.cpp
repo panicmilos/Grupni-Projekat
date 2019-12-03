@@ -2,7 +2,7 @@
 // File Name	   : ioutils.cpp
 // Authors		   : Milos Panic
 // Created         : 01.12.2019.
-// Last Modified   : 01.12.2019. By Milos Panic
+// Last Modified   : 02.12.2019. By Milos Panic
 // Version         : 1.0
 // Description     : Ovaj moduo sadrzi sve dodatne funkcije nad ulazno/izlaznim
 // tokom kao sto su otvaranje toka i pronalazenje izlazne putanje.
@@ -19,7 +19,7 @@
  * @param argv - vrednost argumenata komandne linije.
  * @return izlazna putanja.
  */
-std::string find_output_path(int argc, char* argv[])
+std::string find_output_path(const int argc, const char* argv[])
 {
 	if (argc == 4)
 	{
@@ -40,6 +40,12 @@ std::string find_output_path(int argc, char* argv[])
 	}
 }
 
+/*
+ * Funkcija prima izlaznu putanju i sa nje brise .extenziju kako bi
+ * mogla da se koristi i sa .bin i sa .txt prilikom cuvanja podataka.
+ *
+ * @param output_path - putanja sa koje se skida extenzija.
+*/
 void remove_type_extension(std::string& output_path)
 {
 	const int index = find_last_char_in_string(output_path, '.');
@@ -50,7 +56,15 @@ void remove_type_extension(std::string& output_path)
 	}
 }
 
-std::string get_output_path(int argc, char* argv[])
+/*
+ * Funkcija odredjuje izlaznu putanju na osnovu ulaznih parametara.
+ * Nakon sto odredi putanju brise extenziju sa imena datoteke.
+ *
+ * @param argc - broj argumenata komandne linije.
+ * @param argv - vrednost argumenata komandne linije.
+ * @return izlazna putanja sa imenom bez extenzije.
+*/
+std::string get_output_path(const int argc, const char* argv[])
 {
 	std::string outputh_path = find_output_path(argc, argv);
 	remove_type_extension(outputh_path);
@@ -58,9 +72,21 @@ std::string get_output_path(int argc, char* argv[])
 	return outputh_path;
 }
 
-void parse_int_line(std::istream& in, std::vector<int>& vec, int max_size) {
+/*
+* Funckija prima ulazni tok, vektor i najveci broj koji moze da stane u vektor.
+* Funkcija ucitava liniju brojeva iz ulaznog toga a zatim je parsira i smesta u
+* vektor. U slicaju da se na liniji ne nalaze samo brojevi, da ih ima vise
+* nego sto bi smelo ili da se ne nalaze u zadatom opsegu na ulazni tok se postavlja
+* failbit.
+*
+* @param in - ulazni tok sa kojeg se cita linija.
+* @param vec - vektor u koji se smestaju brojevi.
+* @param max_size - najveci broj elemenata koje vektor prima.
+*/
+void parse_line_of_ints(std::istream& in, std::vector<int>& vec, const int max_size)
+{
 	int i = 0;
-	int points = 0;
+	int points;
 
 	std::string line;
 	getline(in, line);

@@ -17,7 +17,7 @@
  * @return pozicija(index) na kojoj se poslednji put nalazi znak ili -1 ako
  * string ne sadrzi sadati znak.
  */
-int find_last_char_in_string(std::string str, char c)
+int find_last_char_in_string(const std::string& str, const char c)
 {
 	for (int i = str.size() - 1; i >= 0; --i)
 	{
@@ -30,7 +30,13 @@ int find_last_char_in_string(std::string str, char c)
 	return -1;
 }
 
-int count_words(std::string str) {
+/*
+ * Funkcija koja prebrojava koliko ima reci u zadatom stringu.
+ *
+ * @param str - string u kojem broje reci.
+ * @return broj reci u stringu.
+ */
+int count_words(const std::string& str) {
 	int count = 0;
 	std::string word;
 	std::istringstream sstream(str);

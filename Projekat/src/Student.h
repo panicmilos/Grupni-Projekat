@@ -1,9 +1,12 @@
 //============================================================================
-// File Name   : Student.h
-// Authors     : You
-// Version     : 1.0
-// Copyright   : Your copyright notice (if applicable)
-// Description : C++ group project
+// File Name	   : Student.h
+// Authors		   : Milos Panic, Dejan Todorovic
+// Created         : 29.11.2019.
+// Last Modified   : 03.12.2019. By Dejan Todorovic
+// Version         : 1.0
+// Description     : Klasa Student predstavlja model studenta sa imenom,
+// prezimenom i indexom. Poseduje funkcija za prikazivanje, ucitavanje i
+// ispis klase.
 //============================================================================
 
 #ifndef STUDENT_H_
@@ -26,12 +29,13 @@ public:
 	Student(const std::string& fn, const std::string& ln, const std::string& id);
 	Student(const Student& s);
 
-	std::string get_first_name() const;
-	std::string get_last_name() const;
-	std::string get_id() const;
 	void display() const;
 	void write_to_binary_file(std::ofstream& out) const;
 	void read_from_binary_file(std::ifstream& in) const;
+
+	std::string get_first_name() const;
+	std::string get_last_name() const;
+	std::string get_id() const;
 
 	friend std::ostream& operator <<(std::ostream& out, const Student& s);
 	friend std::istream& operator >>(std::istream& in, Student& s);

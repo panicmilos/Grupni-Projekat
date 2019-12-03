@@ -2,7 +2,7 @@
 // File Name	   : Courses.cpp
 // Authors		   : Milos Panic, Dejan Todorovic
 // Created         : 29.11.2019.
-// Last Modified   : 30.11.2019. By Milos Panic
+// Last Modified   : 03.12.2019. By Milos Panic
 // Version         : 1.0
 // Description     : Klasa Courses koja cuva sve rezultate kvizova, domacih
 // zadataka i testova studenta. Cuva konacnu ocenu i njenu znakovu reprezentaciju
@@ -51,6 +51,24 @@ int Courses::sum_grades_in_vector(const std::vector<int>& grades) const
 }
 
 /*
+ * Funkcija koja proverava da li svi brojevi bodova iz kolekcija testova,
+ * domacih zadataka i kvizova odgovaraju uslovu koji postavlja funkcija
+ * check_range iz Validations.h.
+ *
+ * @return - true ako svi brojevi zadovoljavaju uslov inace false;
+*/
+bool Courses::check_grades() const
+{
+	const auto in_range = [](int x) { return check_range(x); };
+
+	bool check_flag = std::all_of(homework.begin(), homework.end(), in_range);
+	check_flag &= std::all_of(test.begin(), test.end(), in_range);
+	check_flag &= std::all_of(quiz.begin(), quiz.end(), in_range);
+
+	return check_flag;
+}
+
+/*
  * Getter za final_score.
  */
 double Courses::get_final_score() const
@@ -58,15 +76,27 @@ double Courses::get_final_score() const
 	return final_score;
 }
 
-std::vector<int> Courses::get_homework() {
+/*
+ * Getter za homework.
+ */
+std::vector<int> Courses::get_homework() const
+{
 	return homework;
 }
 
-std::vector<int> Courses::get_quiz() {
+/*
+ * Getter za quiz.
+ */
+std::vector<int> Courses::get_quiz() const
+{
 	return quiz;
 }
 
-std::vector<int> Courses::get_test() {
+/*
+ * Getter za test.
+ */
+std::vector<int> Courses::get_test() const
+{
 	return test;
 }
 
@@ -78,12 +108,25 @@ void Courses::display() const
 	std::cout << *this;
 }
 
+/*
+ * Funkcija koja ispisuje ocenu studenta i njegovu znakovnu reprezentaciju
+ * u binarnu datoteku.
+ *
+ * @param out - izlazni tok u koji se upisuje ocena i znak.
+*/
 void Courses::write_to_binary_file(std::ofstream& out) const
 {
 	out.write((char*)&final_score, sizeof(double));
 	out.write((char*)&letter_grade, sizeof(char));
 }
 
+/*
+ * Funkcija koja ucitava kolekcije brojeva bodova iz domacih, testova i
+ * kvizova iz binarne datoteke. Takodje racuna zavrsnu ocenu i znakovnu
+ * reprezentaciju znaka na osnovu bodova.
+ *
+ * @param in - ulazni tok iz kojeg se cita.
+*/
 void Courses::read_from_binary_file(std::ifstream& in)
 {
 	in.read((char*)&homework[0], Courses::NUM_HW * sizeof(int));
@@ -91,6 +134,11 @@ void Courses::read_from_binary_file(std::ifstream& in)
 	in.read((char*)&quiz[0], Courses::NUM_QUIZZES * sizeof(int));
 
 	do_calculations();
+
+	if (!check_grades())
+	{
+		in.setstate(std::ios::failbit);
+	}
 }
 
 /*
@@ -140,31 +188,43 @@ void Courses::calc_letter_grade()
 	}
 }
 
+/*
+ *Funckija koja izvrsava sve bitne kalkulacije za ocenu.
+*/
 void Courses::do_calculations()
 {
 	calc_final_score();
 	calc_letter_grade();
 }
+
 /*
  * Preklapanje operatora << za ispis na izlaze.
  * Ispis je u formatu: zavrsna_ocena znakovna_reprezentacija_ocene
+ *
+ * @param out - izlaz na koji se ispisuju podaci.
+ * @param c - objekat kurska ciji se podaci pisu na izlaz.
  */
 std::ostream& operator <<(std::ostream& out, const Courses& c)
 {
 	return out << c.final_score << " " << c.letter_grade;
 }
 
-// Dodati dokumentaciju
-// @throws se koristi za exceptione ako baca.
+/*
+ * Funckija ucitava tri linije koje sadrze razlicit broj bodova
+ * sa ulaznog toka. U slucaju da je broj bodova neipsravan bice
+ * setovan failbit. Nakon toga racuna zavrsnu ocenu i znakovnu
+ * reprezentaciju.
+ *
+ * @param in - ulazni tok sa kojeg se citaju podaci.
+ * @param c - objekat kurska u koji se upisuju podaci.
+*/
 std::istream& operator >>(std::istream& in, Courses& c)
 {
-	parse_int_line(in, c.homework, Courses::NUM_HW);
-	parse_int_line(in, c.test, Courses::NUM_TESTS);
-	parse_int_line(in, c.quiz, Courses::NUM_QUIZZES);
+	parse_line_of_ints(in, c.homework, Courses::NUM_HW);
+	parse_line_of_ints(in, c.test, Courses::NUM_TESTS);
+	parse_line_of_ints(in, c.quiz, Courses::NUM_QUIZZES);
 
 	c.do_calculations();
 
 	return in;
 }
-
-// dodati calculate funkciju koja poziva ona dva;

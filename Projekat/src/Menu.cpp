@@ -1,9 +1,12 @@
 ﻿//============================================================================
-// File Name   : Menu.cpp
-// Authors     : You
-// Version     : 1.0
-// Copyright   : Your copyright notice (if applicable)
-// Description : C++ group project
+// File Name	   : Menu.cpp
+// Authors		   : Milos Panic
+// Created         : 01.12.2019.
+// Last Modified   : 02.12.2019. By Milos Panic
+// Version         : 1.0
+// Description     : Ovaj moduo sadrzi sve dodatne funkcije menija koji omogucava
+// interakciju sa korisnikom kao i dva korisnicka izuzetka za pogresno ime datoteke
+// i pogresan sadrzaj.
 //============================================================================
 
 #include "Menu.h"
@@ -12,8 +15,9 @@ Menu::Menu()
 {
 }
 
-bool Menu::is_id_valid(std::string id) const { return true; }
-
+/*
+ * Funkcija koja ispisuje stavke menija na standardnom izlazu.
+*/
 void Menu::display_menu() const
 {
 	std::cout << "1. Prikazi osnovne informacije o autorima\n"
@@ -26,6 +30,9 @@ void Menu::display_menu() const
 		<< "8. Izlaz iz programa\n";
 }
 
+/*
+ * Funkcija koja ispisuje informacije o autorima na standardnom izlazu.
+*/
 void Menu::display_info() const
 {
 	std::cout << "Autori ovog projekta su: \n"
@@ -33,7 +40,17 @@ void Menu::display_info() const
 		<< "Milos Panic (sw19-2018)\n";
 }
 
-void Menu::read_students_from_txt(std::string input_path)
+/*
+ * Funkcija koja ucitava studente sa textualne ulazne putanje i stavlja ih u
+ * promenjivu gs.
+ *
+ * @param input_path - ulazna putanja na kojoj se otvara ulazni tok.
+ * @throws InvalidFile - u slucaju da na ulaznoj putanji ne postoji
+ * datoteka iz koje se moze citati.
+ * @throws InvalidData - u slucaju da se u datoteci iz koje se cita
+ * nalazi los sadrzaj.
+*/
+void Menu::read_students_from_txt(const std::string& input_path)
 {
 	std::ifstream in(input_path);
 
@@ -52,7 +69,17 @@ void Menu::read_students_from_txt(std::string input_path)
 	in.close();
 }
 
-void Menu::read_students_from_binary(std::string input_path)
+/*
+ * Funkcija koja ucitava studente sa binarne ulazne putanje i stavlja ih u
+ * promenjivu gs.
+ *
+ * @param input_path - ulazna putanja na kojoj se otvara ulazni tok.
+ * @throws InvalidFile - u slucaju da na ulaznoj putanji ne postoji
+ * datoteka iz koje se moze citati.
+ * @throws InvalidData - u slucaju da se u datoteci iz koje se cita
+ * nalazi los sadrzaj.
+*/
+void Menu::read_students_from_binary(const std::string& input_path)
 {
 	std::ifstream in(input_path, std::ios::binary);
 
@@ -65,14 +92,27 @@ void Menu::read_students_from_binary(std::string input_path)
 
 	if (in.fail())
 	{
-		std::cout << "fail sam";
 		throw InvalidData();
 	}
 
 	in.close();
 }
 
-void Menu::read_students(std::string input_path, std::string type)
+/*
+ * Funkcija koja poziva ucitavanje studenata sa binarne ili textualne
+ * ulazne datoteke u zavisnosti sadrzaja promenjive type. Ucitane
+ * studente stavlja u gs.
+ *
+ * @param input_path - ulazna putanja na kojoj se otvara ulazni tok.
+ * @param type - tip ulazne datoteke, "t" za textualne i "b" za binarne.
+ * @throws InvalidFile - u slucaju da na ulaznoj putanji ne postoji
+ * datoteka iz koje se moze citati.
+ * @throws InvalidData - u slucaju da se u datoteci iz koje se cita
+ * nalazi los sadrzaj.
+ * @exception - svi ostali izuzeci koji mogu nastati usred rada sa
+ * binarnim datotekama.
+*/
+void Menu::read_students(const std::string& input_path, const std::string& type)
 {
 	try
 	{
@@ -85,34 +125,74 @@ void Menu::read_students(std::string input_path, std::string type)
 			read_students_from_binary(input_path);
 		}
 	}
-	catch (std::exception & e)
+	catch (const Menu::InvalidFile & excp)
 	{
-		std::cout << e.what();
+		throw excp;
+	}
+	catch (const Menu::InvalidData & excp)
+	{
+		throw excp;
+	}
+	catch (const std::exception & e)
+	{
 		throw e;
 	}
 }
 
+/*
+ * Funkcija koja zahteva od korisnika da unese broj indexa studenta a zatim
+ * ispisuje informacije o tom studentu ili poruku u slucaju da nema studenta
+ * sa zadatim indexom.
+*/
+void Menu::display_student() const
+{
+	std::string id;
+
+	std::cout << "Unesite indeks: ";
+	std::cin >> id;
+
+	gs.display_one_student(id);
+}
+
+/*
+ * Funkcija koja ispisuje sve studente na standardni izlaz u nesortiranom poretku.
+*/
 void Menu::display_students() const
 {
 	gs.display();
 }
 
+/*
+ * Funkcija koja ispisuje sve studente na standardni izlaz u sortiranom poretku.
+ * Sortira se prvo po prezimena, pa imenu i na kraju broju indexa.
+*/
 void Menu::display_students_sorted() const
 {
 	gs.display_sorted();
 }
 
+/*
+ * Funkcija koja ispisuje n studenata sa najboljim prosekom.
+*/
 void Menu::display_highest_score() const
 {
 	gs.display_highest();
 }
 
-void Menu::write_students(std::string output_path, std::string mode)
+/*
+ * Funkcija koja ispisuje sve studente na izlaznu putanju. U slucaju da je tip binaran
+ * upis se vrsi i u binarnu i u textualnu datoteku.
+ *
+ * @param output_path - izlazna putanja na kojoj se otvara izlazni tok.
+ * @param type - tip ulazne datoteke, "t" za textualne i "b" za binarne.
+ */
+void Menu::write_students(const std::string& output_path, const std::string& type)
 {
-	if (mode == "b")
+	if (type == "b")
 	{
 		write_students_to_binary_file(output_path);
 	}
+
 	std::ofstream out(output_path + ".txt");
 
 	gs.write_to_file(out);
@@ -120,7 +200,12 @@ void Menu::write_students(std::string output_path, std::string mode)
 	out.close();
 }
 
-void Menu::write_students_to_binary_file(std::string output_path)
+/*
+ * Funckija koja ispisuje sve studente u binarnu datoteku na zadatoj putanji.
+ *
+ * @param output_path - izlazna putanja na kojoj se otvara izlazni tok.
+*/
+void Menu::write_students_to_binary_file(const std::string& output_path)
 {
 	std::ofstream out(output_path + ".bin", std::ios::binary | std::ios::out);
 

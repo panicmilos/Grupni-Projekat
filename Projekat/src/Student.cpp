@@ -2,7 +2,7 @@
 // File Name	   : Student.cpp
 // Authors		   : Milos Panic, Dejan Todorovic
 // Created         : 29.11.2019.
-// Last Modified   : 30.11.2019. By Milos Panic
+// Last Modified   : 03.12.2019. By Milos Panic
 // Version         : 1.0
 // Description     : Klasa Student predstavlja model studenta sa imenom,
 // prezimenom i indexom. Poseduje funkcija za prikazivanje, ucitavanje i
@@ -51,7 +51,7 @@ std::string Student::get_last_name() const
 }
 
 /*
- * Getter za get_id.
+ * Getter za ID.
  */
 std::string Student::get_id() const
 {
@@ -66,11 +66,22 @@ void Student::display() const
 	std::cout << *this;
 }
 
+/*
+ * Funkcija koja ispisuje broj indexa, ime i prezime studenta u binarnu datoteku.
+ *
+ * @param out - izlazni tok u koji se upisuje ocena i znak.
+*/
 void Student::write_to_binary_file(std::ofstream& out) const
 {
 	out.write((char*)this, sizeof(Student));
 }
 
+/*
+ * Funkcija koja ucitava objekat studenta iz binarne datoteke to jest
+ * broj indexa, ime i prezime studenta.
+ *
+ * @param in - ulazni tok iz kojeg se cita.
+*/
 void Student::read_from_binary_file(std::ifstream& in) const
 {
 	in.read((char*)this, sizeof(Student));
@@ -79,14 +90,23 @@ void Student::read_from_binary_file(std::ifstream& in) const
 /*
  * Preklapanje operatora << za ispis na izlaze.
  * Ispis je u formatu: br_indexa ime prezime
+ *
+ * @param out - izlaz na koji se ispisuju podaci.
+ * @param s - objekat studenta ciji se podaci pisu na izlaz.
  */
 std::ostream& operator <<(std::ostream& out, const Student& s)
 {
 	return out << s.ID << " " << s.first_name << " " << s.last_name;
 }
 
-// Dodati dokumentaciju
-// @throws se koristi za exceptione ako baca.
+/*
+* Funckija ucitava liniju koja sadrze ime, prezime i broj indexa
+* studenta sa ulaznog toka. U slucaju da je broj reci na liniji
+* razlicit od 3 bice setovan failbit.
+*
+* @param in - ulazni tok sa kojeg se citaju podaci.
+* @param s - objekat studenta u koji se upisuju podaci.
+*/
 std::istream& operator >>(std::istream& in, Student& s)
 {
 	std::string line_from_file;
@@ -104,10 +124,3 @@ std::istream& operator >>(std::istream& in, Student& s)
 
 	return in;
 }
-
-// overload >= <= i napravi sorter kao posebnu /obicnu/ klasu koja prima vektore bilo cega i sortira ih
-// koristeci overloadovane <= i >=
-
-// configuration properties/debugging/cmd arg
-
-// underscore notacija

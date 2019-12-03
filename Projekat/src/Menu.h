@@ -1,9 +1,12 @@
 //============================================================================
-// File Name   : Menu.h
-// Authors     : You
-// Version     : 1.0
-// Copyright   : Your copyright notice (if applicable)
-// Description : C++ group project
+// File Name	   : Menu.h
+// Authors		   : Milos Panic
+// Created         : 01.12.2019.
+// Last Modified   : 02.12.2019. By Milos Panic
+// Version         : 1.0
+// Description     : Ovaj moduo sadrzi sve dodatne funkcije menija koji omogucava
+// interakciju sa korisnikom kao i dva korisnicka izuzetka za pogresno ime datoteke
+// i pogresan sadrzaj.
 //============================================================================
 
 #ifndef MENU_H_
@@ -34,16 +37,17 @@ private:
 public:
 	Menu();
 
-	bool is_id_valid(std::string id) const;
 	void display_menu() const;
 	void display_info() const;
-	void read_students(std::string input_path);
+	void read_students(const std::string& input_path, const std::string& type);
+	void read_students_from_txt(const std::string& input_path);
+	void read_students_from_binary(const std::string& input_path);
 	void display_student() const;
 	void display_students() const;
 	void display_students_sorted() const;
 	void display_highest_score() const;
-	void write_students(std::string output_path, std::string mode);
-	void write_students_to_binary_file(std::string output_path);
+	void write_students(const std::string& output_path, const std::string& type);
+	void write_students_to_binary_file(const std::string& output_path);
 };
 
 #endif /*MENU_H_*/

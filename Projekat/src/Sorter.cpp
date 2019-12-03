@@ -18,7 +18,6 @@
  * @param vec - vektor elemenata proizvoljnog tipa ciji se elementi sortiraju.
  * @param comparison_fcn - komparator funkcija koja poredi dva elementa
  * navedenog tipa po zeljenom kriterijumu.
- *
  */
 template <typename T>
 void static MergeSort::merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(const T&, const T&))
@@ -41,11 +40,11 @@ void static MergeSort::merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(co
  *
  */
 template <typename T>
-void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& temp, bool (*comparison_fcn)(const T&, const T&), int begin, int end)
+void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& temp, bool (*comparison_fcn)(const T&, const T&), const int begin, const int end)
 {
 	if (begin < end)
 	{
-		int middle = (end + begin) / 2;
+		const int middle = (end + begin) / 2;
 
 		merge_sort_loop(vec, temp, comparison_fcn, begin, middle);
 		merge_sort_loop(vec, temp, comparison_fcn, middle + 1, end);
@@ -68,7 +67,7 @@ void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& temp, bool 
  *
  */
 template<typename T>
-void MergeSort::merge(std::vector<T>& vec, std::vector<T>& temp, bool(*comparison_fcn)(const T&, const T&), int begin, int middle, int end)
+void MergeSort::merge(std::vector<T>& vec, std::vector<T>& temp, bool(*comparison_fcn)(const T&, const T&), const int begin, const int middle, const int end)
 {
 	int i = begin;
 	int j = middle + 1;

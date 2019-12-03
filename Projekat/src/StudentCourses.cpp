@@ -58,12 +58,24 @@ void StudentCourses::display() const
 	std::cout << *this;
 }
 
+/*
+ * Funkcija koja upisuje podatke o studentu i podatke o njegovoj oceni
+ * u binarnu datoteku.
+ *
+ * @param out - izlazni tok u koji se upisuje student i ocena.
+*/
 void StudentCourses::write_to_binary_file(std::ofstream& out) const
 {
 	student.write_to_binary_file(out);
 	courses.write_to_binary_file(out);
 }
 
+/*
+ * Funkcija koja ucitava sve podatke o studentu i njegovim ocenama
+ * iz binarne datoteke.
+ *
+ * @param in - ulazni tok iz kojeg se cita.
+*/
 void StudentCourses::read_from_binary_file(std::ifstream& in)
 {
 	student.read_from_binary_file(in);
@@ -114,14 +126,23 @@ bool id_comparator(const StudentCourses& sc1, const StudentCourses& sc2)
 /*
  * Preklapanje operatora << za ispis na izlaze.
  * Ispis je u formatu: br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene
+ *
+ * @param out - izlaz na koji se ispisuju podaci.
+ * @param sc - objekat StudentCourses ciji se podaci pisu na izlaz tj podaci o
+ * studentu i njegovim ocenama.
  */
 std::ostream& operator <<(std::ostream& out, const StudentCourses& sc)
 {
-	return out << sc.student << " " << sc.courses;
+	return out << sc.student << " " << sc.courses << "\n";
 }
 
-// Dodati dokumentaciju
-// @throws se koristi za exceptione ako baca.
+/*
+ * Funckija ucitava sve podatke o studentu i njegovim ocenama
+ * sa ulaznog toka.
+ *
+ * @param in - ulazni tok sa kojeg se citaju podaci.
+ * @param sc - objekat StudentCourses u koji se upisuju podaci o studentu i njegovim ocenama.
+*/
 std::istream& operator >>(std::istream& in, StudentCourses& sc)
 {
 	return in >> sc.student >> sc.courses;
