@@ -11,14 +11,14 @@
 
 #include "Menu.h"
 
-/*
+/**
  * Podrazumevani konstruktor.
  */
 Menu::Menu()
 {
 }
 
-/*
+/**
  * Konstruktor sa parametrima.
  */
 Menu::Menu(const GroupOfStudents& gos) :
@@ -26,7 +26,7 @@ Menu::Menu(const GroupOfStudents& gos) :
 {
 }
 
-/*
+/**
  * Konstruktor kopije.
  */
 Menu::Menu(const Menu& m) :
@@ -34,7 +34,7 @@ Menu::Menu(const Menu& m) :
 {
 }
 
-/*
+/**
  * Funkcija koja ispisuje stavke menija na standardnom izlazu.
 */
 void Menu::display_menu() const
@@ -49,7 +49,7 @@ void Menu::display_menu() const
 		<< "8. Izlaz iz programa\n";
 }
 
-/*
+/**
  * Funkcija koja ispisuje informacije o autorima na standardnom izlazu.
 */
 void Menu::display_info() const
@@ -59,7 +59,7 @@ void Menu::display_info() const
 		<< "Milos Panic (sw19-2018)\n";
 }
 
-/*
+/**
  * Funkcija koja ucitava studente sa textualne ulazne putanje i stavlja ih u
  * promenjivu gs.
  *
@@ -88,7 +88,7 @@ void Menu::read_students_from_txt(const std::string& input_path)
 	in.close();
 }
 
-/*
+/**
  * Funkcija koja ucitava studente sa binarne ulazne putanje i stavlja ih u
  * promenjivu gs.
  *
@@ -117,7 +117,7 @@ void Menu::read_students_from_binary(const std::string& input_path)
 	in.close();
 }
 
-/*
+/**
  * Funkcija koja poziva ucitavanje studenata sa binarne ili textualne
  * ulazne datoteke u zavisnosti sadrzaja promenjive type. Ucitane
  * studente stavlja u gs.
@@ -160,7 +160,7 @@ void Menu::read_students(const std::string& input_path, const std::string& type)
 	std::cout << "Studenti su uspesno ucitani.\n";
 }
 
-/*
+/**
  * Funkcija koja zahteva od korisnika da unese broj indexa studenta a zatim
  * ispisuje informacije o tom studentu ili poruku u slucaju da nema studenta
  * sa zadatim indexom.
@@ -175,7 +175,7 @@ void Menu::display_student() const
 	gs.display_one_student(id);
 }
 
-/*
+/**
  * Funkcija koja ispisuje sve studente na standardni izlaz u nesortiranom poretku.
 */
 void Menu::display_students() const
@@ -184,7 +184,7 @@ void Menu::display_students() const
 	gs.display();
 }
 
-/*
+/**
  * Funkcija koja ispisuje sve studente na standardni izlaz u sortiranom poretku.
  * Sortira se prvo po prezimena, pa imenu i na kraju broju indexa.
 */
@@ -194,7 +194,7 @@ void Menu::display_students_sorted() const
 	gs.display_sorted();
 }
 
-/*
+/**
  * Funkcija koja ispisuje n studenata sa najboljim prosekom.
 */
 void Menu::display_highest_score() const
@@ -202,7 +202,7 @@ void Menu::display_highest_score() const
 	gs.display_highest();
 }
 
-/*
+/**
  * Funkcija koja ispisuje sve studente na izlaznu putanju. U slucaju da je tip binaran
  * upis se vrsi i u binarnu i u textualnu datoteku.
  *
@@ -225,7 +225,7 @@ void Menu::write_students(const std::string& output_path, const std::string& typ
 	std::cout << "Studenti su uspesno sacuvani.\n";
 }
 
-/*
+/**
  * Funckija koja ispisuje sve studente u binarnu datoteku na zadatoj putanji.
  *
  * @param output_path - izlazna putanja na kojoj se otvara izlazni tok.

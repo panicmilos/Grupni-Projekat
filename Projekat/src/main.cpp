@@ -108,3 +108,4 @@ int main(const int argc, const char* argv[])
 
 // najbolji
 // zastota da ne moze dva ptua da ce ucita
+// dokumentacija u GOS

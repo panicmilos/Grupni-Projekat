@@ -10,7 +10,7 @@
 
 #include "Validations.h"
 
-/*
+/**
  * Funkcija koja proverava da li je broj parametara u granicama
  * izmedju MIN_NUM_OF_ARGS i MAX_NUM_OF_ARGS
  *
@@ -23,7 +23,7 @@ bool validate_num_of_args(const int argc)
 	return MIN_NUM_OF_ARGS <= argc && argc <= MAX_NUM_OF_ARGS;
 }
 
-/*
+/**
  * Funkcija koja proverava da li zadat tip datoteke odgovara
  * binarnomm textualnom ili ne.
  *
@@ -36,7 +36,7 @@ bool validate_type(const std::string& type)
 	return type == TEXTUAL_SYMBOL || type == BINARY_SYMBOL;
 }
 
-/*
+/**
  * Funkcija koja u isto vreme proverava broj parametara
  * komandne linije i zadati tip.
  *
@@ -50,7 +50,7 @@ bool validate_arguments(const int argc, const char* argv[])
 	return validate_num_of_args(argc) && validate_type(argv[2]);
 }
 
-/*
+/**
  * Funkcija koja proverava da li je broj bodova u granicama
  * izmedju MIN_POINTS i MAX_POINTS
  *

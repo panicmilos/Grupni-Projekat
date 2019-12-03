@@ -12,14 +12,14 @@
 
 #include "GroupOfStudents.h"
 
-/*
+/**
  * Podrazumevani konstruktor.
  */
 GroupOfStudents::GroupOfStudents()
 {
 }
 
-/*
+/**
  * Konstruktor sa parametrima.
  */
 GroupOfStudents::GroupOfStudents(const std::vector<StudentCourses>& v) :
@@ -27,7 +27,7 @@ GroupOfStudents::GroupOfStudents(const std::vector<StudentCourses>& v) :
 {
 }
 
-/*
+/**
  * Konstruktor kopije.
  */
 GroupOfStudents::GroupOfStudents(const GroupOfStudents& gof) :
@@ -35,7 +35,7 @@ GroupOfStudents::GroupOfStudents(const GroupOfStudents& gof) :
 {
 }
 
-/*
+/**
  * Funckija proverava da li medju ucitanim studentima ima
  * dva sa istim brojem indexa.
  *
@@ -59,7 +59,7 @@ void GroupOfStudents::search_for_highest(std::vector<int>& indices_max) const
 {
 }
 
-/*
+/**
  * Getter za student_courses.
  */
 const std::vector<StudentCourses>& GroupOfStudents::get_student_courses() const
@@ -67,7 +67,7 @@ const std::vector<StudentCourses>& GroupOfStudents::get_student_courses() const
 	return st_vec;
 }
 
-/*
+/**
  * Funkcija ispisuje sve studente zajedno sa njihovim ocenama na standardnom ulazu.
  * Ispis za svakog studenta je u formatu:
  * br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene
@@ -77,7 +77,7 @@ void GroupOfStudents::display() const
 	std::cout << *this;
 }
 
-/*
+/**
  * Funkcija ispisuje sve studente zajedno sa njihovim ocenama na standardnom ulazu.
  * Studenti su sortirani prema alfabetnom redu i to prvo prezime, ime pa tek onda
  * broj indexa.
@@ -98,7 +98,7 @@ void GroupOfStudents::display_highest() const
 {
 }
 
-/*
+/**
  * Funkcija ispisuje sve studente zajedno sa njihovim ocenama u izlazni tok.
  * Studenti su sortirani prema broju indexa
  * Ispis za svakog studenta je u formatu:
@@ -117,7 +117,7 @@ void GroupOfStudents::write_to_file(std::ofstream& out) const
 	st_vec = vector_copy;
 }
 
-/*
+/**
  * Funkcija ispisuje sve studente zajedno sa njihovim ocenama u izlazni tok
  * u binarnom zapisu. Studenti su sortirani prema broju indexa
  * Ispis za svakog studenta je u formatu:
@@ -139,7 +139,7 @@ void GroupOfStudents::write_to_binary_file(std::ofstream& out) const
 	st_vec = vector_copy;
 }
 
-/*
+/**
  * Funkcija ucitava sve studente iz binarne textualne datoteke.
  * Jedan student je opisan sa redom velicine sizeof(Student) +
  * sizeof(int)*20 i smesta ih u st_vec.
@@ -168,7 +168,7 @@ void GroupOfStudents::read_from_binary_file(std::ifstream& in) const
 	}
 }
 
-/*
+/**
  * Funkcija proverava da li u vektoru st_vec postoji student ciji je
  * broj indexa isti kao i zadatom. Ako je student pronadjen onda se
  * vraca pokazivac na njega a ako nije onda se vraca nullprt;
@@ -192,7 +192,7 @@ StudentCourses* GroupOfStudents::find_by_id(const std::string& id) const
 	return nullptr;
 }
 
-/*
+/**
  * Funckija ispisuje podatke o studentu sa zadatim indexom. U slucaju
  * da ne postoji student sa zadatim indexom ispisace odgovarajucu
  * poruku o tome.
@@ -215,7 +215,7 @@ void GroupOfStudents::display_one_student(const std::string& id) const
 	}
 }
 
-/*
+/**
  * Preklapanje operatora << za ispis svih studenata na izlaze.
  * Ispis je u formatu:
  * br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene
@@ -234,7 +234,7 @@ std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof)
 	return out;
 }
 
-/*
+/**
  * Funckija ucitava studente i njegove bodove dokle god ih ima u datoteci
  * ili dok ne dodje do neke greske. Sve ucitane studente smesta u st_vec.
  *
