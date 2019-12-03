@@ -29,6 +29,7 @@ int main(const int argc, const char* argv[])
 
 	Menu m;
 	int option;
+	bool students_inputed = false;
 
 	do
 	{
@@ -55,6 +56,12 @@ int main(const int argc, const char* argv[])
 			}
 		}
 
+		if (!students_inputed && option != Menu::INFO && option != Menu::READ_FILE)
+		{
+			std::cout << "Prvo morate ucitati studente.\n";
+			continue;
+		}
+
 		switch (option)
 		{
 		case Menu::INFO:
@@ -64,6 +71,7 @@ int main(const int argc, const char* argv[])
 			try
 			{
 				m.read_students(input_path, type);
+				students_inputed = true;
 			}
 			catch (const Menu::InvalidFile & excp)
 			{
@@ -99,3 +107,5 @@ int main(const int argc, const char* argv[])
 }
 
 // najbolji
+// zastota da ne moze dva ptua da ce ucita
+// dokumentacija u GOS

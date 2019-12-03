@@ -11,14 +11,14 @@
 
 #include "Student.h"
 
-/*
+/**
  * Podrazumevani konstruktor.
  */
 Student::Student() :first_name("unknown"), last_name("unknown"), ID("unknown")
 {
 }
 
-/*
+/**
  * Konstruktor sa parametrima.
  */
 Student::Student(const std::string& fn, const std::string& ln, const std::string& id) :
@@ -26,7 +26,7 @@ Student::Student(const std::string& fn, const std::string& ln, const std::string
 {
 }
 
-/*
+/**
  * Konstruktor kopije.
  */
 Student::Student(const Student& s) :
@@ -34,7 +34,7 @@ Student::Student(const Student& s) :
 {
 }
 
-/*
+/**
  * Getter za first_name.
  */
 std::string Student::get_first_name() const
@@ -42,7 +42,7 @@ std::string Student::get_first_name() const
 	return first_name;
 }
 
-/*
+/**
  * Getter za last_name.
  */
 std::string Student::get_last_name() const
@@ -50,7 +50,7 @@ std::string Student::get_last_name() const
 	return last_name;
 }
 
-/*
+/**
  * Getter za ID.
  */
 std::string Student::get_id() const
@@ -58,7 +58,7 @@ std::string Student::get_id() const
 	return ID;
 }
 
-/*
+/**
  * Funkcija koja ispisuje informaciju o studentu na standardnom izlazu.
  */
 void Student::display() const
@@ -66,7 +66,7 @@ void Student::display() const
 	std::cout << *this;
 }
 
-/*
+/**
  * Funkcija koja ispisuje broj indexa, ime i prezime studenta u binarnu datoteku.
  *
  * @param out - izlazni tok u koji se upisuje ocena i znak.
@@ -76,7 +76,7 @@ void Student::write_to_binary_file(std::ofstream& out) const
 	out.write((char*)this, sizeof(Student));
 }
 
-/*
+/**
  * Funkcija koja ucitava objekat studenta iz binarne datoteke to jest
  * broj indexa, ime i prezime studenta.
  *
@@ -87,7 +87,7 @@ void Student::read_from_binary_file(std::ifstream& in) const
 	in.read((char*)this, sizeof(Student));
 }
 
-/*
+/**
  * Preklapanje operatora << za ispis na izlaze.
  * Ispis je u formatu: br_indexa ime prezime
  *
@@ -99,7 +99,7 @@ std::ostream& operator <<(std::ostream& out, const Student& s)
 	return out << s.ID << " " << s.first_name << " " << s.last_name;
 }
 
-/*
+/**
 * Funckija ucitava liniju koja sadrze ime, prezime i broj indexa
 * studenta sa ulaznog toka. U slucaju da je broj reci na liniji
 * razlicit od 3 bice setovan failbit.

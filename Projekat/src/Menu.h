@@ -36,6 +36,8 @@ private:
 
 public:
 	Menu();
+	Menu(const GroupOfStudents& gos);
+	Menu(const Menu& m);
 
 	void display_menu() const;
 	void display_info() const;

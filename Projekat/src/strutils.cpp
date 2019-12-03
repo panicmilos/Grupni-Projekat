@@ -9,7 +9,7 @@
 
 #include "strutils.h"
 
-/*
+/**
  * Funkcija trazi poslednje pojavljivanje zadatog karaktera u zadatom stringu.
  *
  * @param str - string u kojem se trazi znak.
@@ -30,7 +30,7 @@ int find_last_char_in_string(const std::string& str, const char c)
 	return -1;
 }
 
-/*
+/**
  * Funkcija koja prebrojava koliko ima reci u zadatom stringu.
  *
  * @param str - string u kojem broje reci.

@@ -13,7 +13,7 @@
 #include "Courses.h"
 #include <iomanip>
 
-/*
+/**
  * Podrazumevani konstruktor.
  */
 Courses::Courses() :
@@ -21,7 +21,7 @@ Courses::Courses() :
 {
 }
 
-/*
+/**
  * Konstruktor sa parametrima.
  */
 Courses::Courses(const std::vector<int>& q, const std::vector<int>& h, const std::vector<int>& t)
@@ -30,7 +30,7 @@ Courses::Courses(const std::vector<int>& q, const std::vector<int>& h, const std
 	do_calculations();
 }
 
-/*
+/**
  * Konstruktor kopije.
  */
 Courses::Courses(const Courses& c) :
@@ -38,7 +38,7 @@ Courses::Courses(const Courses& c) :
 {
 }
 
-/*
+/**
  * Funkcija racuna zbir svih ocena u vetoru.
  *
  * @param grades - vektor koji sadrzi ocene.
@@ -51,7 +51,7 @@ int Courses::sum_grades_in_vector(const std::vector<int>& grades) const
 	return std::accumulate(begin(grades), end(grades), 0, accumulation);
 }
 
-/*
+/**
  * Funkcija koja proverava da li svi brojevi bodova iz kolekcija testova,
  * domacih zadataka i kvizova odgovaraju uslovu koji postavlja funkcija
  * check_range iz Validations.h.
@@ -69,7 +69,7 @@ bool Courses::check_grades() const
 	return check_flag;
 }
 
-/*
+/**
  * Getter za final_score.
  */
 double Courses::get_final_score() const
@@ -77,7 +77,7 @@ double Courses::get_final_score() const
 	return final_score;
 }
 
-/*
+/**
  * Getter za homework.
  */
 std::vector<int> Courses::get_homework() const
@@ -85,7 +85,7 @@ std::vector<int> Courses::get_homework() const
 	return homework;
 }
 
-/*
+/**
  * Getter za quiz.
  */
 std::vector<int> Courses::get_quiz() const
@@ -93,7 +93,7 @@ std::vector<int> Courses::get_quiz() const
 	return quiz;
 }
 
-/*
+/**
  * Getter za test.
  */
 std::vector<int> Courses::get_test() const
@@ -101,7 +101,7 @@ std::vector<int> Courses::get_test() const
 	return test;
 }
 
-/*
+/**
  * Funkcija koja ispisuje informaciju o oceni studenta na standardnom izlazu.
  */
 void Courses::display() const
@@ -109,7 +109,7 @@ void Courses::display() const
 	std::cout << *this;
 }
 
-/*
+/**
  * Funkcija koja ispisuje ocenu studenta i njegovu znakovnu reprezentaciju
  * u binarnu datoteku.
  *
@@ -121,7 +121,7 @@ void Courses::write_to_binary_file(std::ofstream& out) const
 	out.write((char*)&letter_grade, sizeof(char));
 }
 
-/*
+/**
  * Funkcija koja ucitava kolekcije brojeva bodova iz domacih, testova i
  * kvizova iz binarne datoteke. Takodje racuna zavrsnu ocenu i znakovnu
  * reprezentaciju znaka na osnovu bodova.
@@ -142,7 +142,7 @@ void Courses::read_from_binary_file(std::ifstream& in)
 	}
 }
 
-/*
+/**
  * Funkcija koja racuna zavrsnu ocenu studenta na osnovu njegovih rezultata
  * sa kvizova, testova i domacih zadataka i smesta u promenjivu final_score.
  * U slucaju da zavrsna ocena nije ceo broj zaokruzuje se na prvu celu vrednost.
@@ -156,7 +156,7 @@ void Courses::calc_final_score()
 	final_score = round(points_from_quizzes + points_from_hws + points_from_tests);
 }
 
-/*
+/**
  * Funckija koja racuna znakovnu reprezentaciju konacne ocene studenta po pravilu:
  * [100, 90] = A
  * [89, 80] = B
@@ -189,7 +189,7 @@ void Courses::calc_letter_grade()
 	}
 }
 
-/*
+/**
  *Funckija koja izvrsava sve bitne kalkulacije za ocenu.
 */
 void Courses::do_calculations()
@@ -198,7 +198,7 @@ void Courses::do_calculations()
 	calc_letter_grade();
 }
 
-/*
+/**
  * Preklapanje operatora << za ispis na izlaze.
  * Ispis je u formatu: zavrsna_ocena znakovna_reprezentacija_ocene
  *
@@ -210,7 +210,7 @@ std::ostream& operator <<(std::ostream& out, const Courses& c)
 	return out << c.final_score << " " << c.letter_grade;
 }
 
-/*
+/**
  * Funckija ucitava tri linije koje sadrze razlicit broj bodova
  * sa ulaznog toka. U slucaju da je broj bodova neipsravan bice
  * setovan failbit. Nakon toga racuna zavrsnu ocenu i znakovnu

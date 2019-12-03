@@ -10,7 +10,7 @@
 
 #include "ioutils.h"
 
-/*
+/**
  * Funkcija odredjuje izlaznu putanju na osnovu ulaznih parametara. Ukoliko
  * se izlazna putanja nalazi u parametrima onda vraca nju a ako ne onda
  * odredjuje izlaznu putanju na osnovu ulazne.
@@ -40,7 +40,7 @@ std::string find_output_path(const int argc, const char* argv[])
 	}
 }
 
-/*
+/**
  * Funkcija prima izlaznu putanju i sa nje brise .extenziju kako bi
  * mogla da se koristi i sa .bin i sa .txt prilikom cuvanja podataka.
  *
@@ -56,7 +56,7 @@ void remove_type_extension(std::string& output_path)
 	}
 }
 
-/*
+/**
  * Funkcija odredjuje izlaznu putanju na osnovu ulaznih parametara.
  * Nakon sto odredi putanju brise extenziju sa imena datoteke.
  *
@@ -72,7 +72,7 @@ std::string get_output_path(const int argc, const char* argv[])
 	return outputh_path;
 }
 
-/*
+/**
 * Funckija prima ulazni tok, vektor i najveci broj koji moze da stane u vektor.
 * Funkcija ucitava liniju brojeva iz ulaznog toga a zatim je parsira i smesta u
 * vektor. U slicaju da se na liniji ne nalaze samo brojevi, da ih ima vise

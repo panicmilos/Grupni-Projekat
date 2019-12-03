@@ -11,7 +11,7 @@
 
 #include "Sorter.h"
 
-/*
+/**
  * Funckija koja sortira vector elemenata po zadatom kriterijmu. Algoritam je
  * Merge Sort.
  *
@@ -26,7 +26,7 @@ void static MergeSort::merge_sort(std::vector<T>& vec, bool (*comparison_fcn)(co
 	merge_sort_loop(vec, temp, comparison_fcn, 0, vec.size() - 1);
 }
 
-/*
+/**
  * Funkcija koja deli pocetni vektor na dva dela po sredini. Zatim ponavlja postupak
  * dokle god se ne svede na vektor velicine 1. A zatim poziva funkciju za spajanje
  * dva izdeljena vektora.
@@ -52,7 +52,7 @@ void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& temp, bool 
 	}
 }
 
-/*
+/**
  * Funckija koja uzima dva dela izdeljenog vektora, i spaja ih tako da budu sortirana
  * dokle god se jedan od ta dva dela skroz ne isprazne. Zatim ostatak jednog od dva
  * vektora stavlja u temp i posle toga taj sortirani deo vraca u pocetan vektor.
