@@ -33,6 +33,7 @@ public:
 
 	friend bool alphabetical_comparator(const StudentCourses& sc1, const StudentCourses& sc2);
 	friend bool id_comparator(const StudentCourses& sc1, const StudentCourses& sc2);
+	friend bool grades_comparator(const StudentCourses& sc1, const StudentCourses& sc2);
 
 	friend std::ostream& operator <<(std::ostream& out, const StudentCourses& sc);
 	friend std::istream& operator >>(std::istream& in, StudentCourses& sc);
@@ -40,6 +41,7 @@ public:
 
 bool alphabetical_comparator(const StudentCourses& sc1, const StudentCourses& sc2);
 bool id_comparator(const StudentCourses& sc1, const StudentCourses& sc2);
+bool grades_comparator(const StudentCourses& sc1, const StudentCourses& sc2);
 
 std::ostream& operator <<(std::ostream& out, const StudentCourses& sc);
 std::istream& operator >>(std::istream& in, StudentCourses& sc);

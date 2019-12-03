@@ -2,7 +2,7 @@
 // File Name	   : StudentCourses.cpp
 // Authors		   : Milos Panic, Dejan Todorovic
 // Created         : 29.11.2019.
-// Last Modified   : 02.12.2019. By Milos Panic
+// Last Modified   : 03.12.2019. By Milos Panic
 // Version         : 1.0
 // Description     : Klasa StudentCourses objedinjuje studenta i njegove
 // ocene. Poseduje funkcija za prikazivanje, ucitavanje i ispis klase.
@@ -121,6 +121,19 @@ bool alphabetical_comparator(const StudentCourses& sc1, const StudentCourses& sc
 bool id_comparator(const StudentCourses& sc1, const StudentCourses& sc2)
 {
 	return (sc1.student.get_id().compare(sc2.student.get_id()) > 0) ? true : false;
+}
+
+/*
+ * Komparator funkcija koja ocene za dva studenta.
+ * Koristi se kao parametar Merge Sorta.
+ *
+ * @param sc1 - prvi student
+ * @param sc2 - drugi student
+ * @return true ako student 2 ima vecu ocenu od studenta 1.
+ */
+bool grades_comparator(const StudentCourses& sc1, const StudentCourses& sc2)
+{
+	return (sc1.get_final_score() - sc2.get_final_score()) < 0 ? true : false;
 }
 
 /*
