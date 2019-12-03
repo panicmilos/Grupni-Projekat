@@ -105,7 +105,3 @@ int main(const int argc, const char* argv[])
 	} while (option != Menu::EXIT);
 	return 0;
 }
-
-// najbolji
-// zastota da ne moze dva ptua da ce ucita
-// dokumentacija u GOS

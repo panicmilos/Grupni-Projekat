@@ -55,12 +55,6 @@ bool GroupOfStudents::check_for_duplicates() const
 	return student_ids.size() != st_vec.size();
 }
 
-
-// Ovo je ona glupa metoda bljak
-void GroupOfStudents::search_for_highest(std::vector<int>& indices_max) const
-{
-}
-
 /**
  * Getter za student_courses.
  */
@@ -95,15 +89,20 @@ void GroupOfStudents::display_sorted() const
 	st_vec = vector_copy;
 }
 
-void GroupOfStudents::display_highest(int n) const
+/**
+ * Funkcija ispisuje n studenata sa najboljim prosekom. U slucaju da je broj veci od
+ * broja studenata ispisace se onoliko koliko ih ima.
+ */
+void GroupOfStudents::display_highest(const int n) const
 {
 	const std::vector<StudentCourses> vector_copy(st_vec);
 
 	MergeSort::merge_sort<StudentCourses>(st_vec, grades_comparator);
-	int num = std::min(n, (int)st_vec.size());
+	const int num = std::min(n, (int)st_vec.size());
 
-	for (int i = 0; i < num; ++i) {
-		std::cout << st_vec[i];
+	for (int i = 0; i < num; ++i)
+	{
+		st_vec[i].display();
 	}
 
 	st_vec = vector_copy;
@@ -159,6 +158,8 @@ void GroupOfStudents::write_to_binary_file(std::ofstream& out) const
 */
 void GroupOfStudents::read_from_binary_file(std::ifstream& in) const
 {
+	st_vec.clear();
+
 	while (!in.eof())
 	{
 		StudentCourses sc;
@@ -254,6 +255,8 @@ std::ostream& operator <<(std::ostream& out, const GroupOfStudents& gof)
 */
 std::istream& operator >>(std::istream& in, GroupOfStudents& gof)
 {
+	gof.st_vec.clear();
+
 	while (!in.eof())
 	{
 		StudentCourses sc;

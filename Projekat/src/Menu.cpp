@@ -204,13 +204,14 @@ void Menu::display_highest_score() const
 	std::cout << "Unesite broj studenata za prikaz: ";
 	std::cin >> id;
 
-	if (std::cin.fail() || id <= 0) {
-		std::cout << "Nevalidan unos!";
+	if (std::cin.fail() || id <= 0)
+	{
+		std::cout << "Ulaz nije validan unos!\n";
+		std::cin.clear();
+		return;
 	}
-	else {
 
-		gs.display_highest((unsigned int)id);
-	}
+	gs.display_highest(id);
 }
 
 /**

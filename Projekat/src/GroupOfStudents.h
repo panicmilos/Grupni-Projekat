@@ -24,7 +24,6 @@ class GroupOfStudents
 {
 private:
 	mutable std::vector<StudentCourses> st_vec;
-	void search_for_highest(std::vector<int>& indices_max) const; // utility
 	StudentCourses* find_by_id(const std::string& id) const;
 
 public:
@@ -36,7 +35,7 @@ public:
 	void display_one_student(const std::string& id) const;
 	void display() const;
 	void display_sorted() const;
-	void display_highest(int n) const;
+	void display_highest(const int n) const;
 	void write_to_file(std::ofstream& out) const;
 	void write_to_binary_file(std::ofstream& out) const;
 	void read_from_binary_file(std::ifstream& in) const;
