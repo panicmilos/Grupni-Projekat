@@ -55,6 +55,8 @@ bool GroupOfStudents::check_for_duplicates() const
 	return student_ids.size() != st_vec.size();
 }
 
+
+// Ovo je ona glupa metoda bljak
 void GroupOfStudents::search_for_highest(std::vector<int>& indices_max) const
 {
 }
@@ -93,9 +95,18 @@ void GroupOfStudents::display_sorted() const
 	st_vec = vector_copy;
 }
 
-// TO DO
-void GroupOfStudents::display_highest() const
+void GroupOfStudents::display_highest(int n) const
 {
+	const std::vector<StudentCourses> vector_copy(st_vec);
+
+	MergeSort::merge_sort<StudentCourses>(st_vec, grades_comparator);
+	int num = std::min(n, (int)st_vec.size());
+
+	for (int i = 0; i < num; ++i) {
+		std::cout << st_vec[i];
+	}
+
+	st_vec = vector_copy;
 }
 
 /*

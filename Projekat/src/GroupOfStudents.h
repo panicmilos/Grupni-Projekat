@@ -35,7 +35,7 @@ public:
 	bool check_for_duplicates() const;
 	void display() const;
 	void display_sorted() const;
-	void display_highest() const;
+	void display_highest(int n) const;
 	void write_to_file(std::ofstream& out) const;
 	void display_one_student(const std::string& id) const;
 	void write_to_binary_file(std::ofstream& out) const;

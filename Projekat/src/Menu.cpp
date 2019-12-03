@@ -176,7 +176,18 @@ void Menu::display_students_sorted() const
 */
 void Menu::display_highest_score() const
 {
-	gs.display_highest();
+	int id;
+
+	std::cout << "Unesite broj studenata za prikaz: ";
+	std::cin >> id;
+
+	if (std::cin.fail() || id <= 0) {
+		std::cout << "Nevalidan unos!";
+	}
+	else {
+
+		gs.display_highest((unsigned int)id);
+	}
 }
 
 /*
