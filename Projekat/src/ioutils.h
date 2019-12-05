@@ -15,7 +15,7 @@
 #include <sstream>
 #include "Validations.h"
 
-#define DEFAULT_OUTPUT_NAME "default_output_name";
+const std::string DEFAULT_OUTPUT_NAME = "default_output_name";
 
 std::string find_output_path(const int argc, const char* argv[]);
 void remove_type_extension(std::string& output_path);

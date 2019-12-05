@@ -189,19 +189,10 @@ void GroupOfStudents::read_from_binary_file(std::ifstream& in) const
 */
 StudentCourses* GroupOfStudents::find_by_id(const std::string& id) const
 {
-	StudentCourses* s = new StudentCourses();
+	const auto condition = [&id](const StudentCourses& sc) { return sc.get_student().get_id() == id; };
+	const std::vector<StudentCourses>::iterator it = std::find_if(st_vec.begin(), st_vec.end(), condition);
 
-	for (StudentCourses sc : st_vec)
-	{
-		if (sc.get_student().get_id() == id)
-		{
-			*s = sc;
-
-			return s;
-		}
-	}
-
-	return nullptr;
+	return (it != st_vec.end()) ? (&*it) : (nullptr);
 }
 
 /**
@@ -219,7 +210,6 @@ void GroupOfStudents::display_one_student(const std::string& id) const
 	{
 		std::cout << "Student sa zadatim indexom je:\n";
 		s->display();
-		delete s;
 	}
 	else
 	{
