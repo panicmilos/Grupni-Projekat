@@ -195,23 +195,12 @@ void Menu::display_students_sorted() const
 }
 
 /**
- * Funkcija koja ispisuje n studenata sa najboljim prosekom.
+ * Funkcija koja ispisuje studenate sa najboljim prosekom.
 */
 void Menu::display_highest_score() const
 {
-	int id;
-
-	std::cout << "Unesite broj studenata za prikaz: ";
-	std::cin >> id;
-
-	if (std::cin.fail() || id <= 0)
-	{
-		std::cout << "Ulaz nije validan unos!\n";
-		std::cin.clear();
-		return;
-	}
-
-	gs.display_highest(id);
+	std::cout << "Studenti sa najboljim prosekom su: \n";
+	gs.display_highest();
 }
 
 /**

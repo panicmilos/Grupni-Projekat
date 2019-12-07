@@ -70,6 +70,7 @@ int main(const int argc, const char* argv[])
 		case Menu::READ_FILE:
 			try
 			{
+				students_inputed = false;
 				m.read_students(input_path, type);
 				students_inputed = true;
 			}

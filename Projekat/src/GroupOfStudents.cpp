@@ -90,22 +90,19 @@ void GroupOfStudents::display_sorted() const
 }
 
 /**
- * Funkcija ispisuje n studenata sa najboljim prosekom. U slucaju da je broj veci od
- * broja studenata ispisace se onoliko koliko ih ima.
+ * Funkcija ispisuje studenate sa najboljim prosekom.
  */
-void GroupOfStudents::display_highest(const int n) const
+void GroupOfStudents::display_highest() const
 {
-	const std::vector<StudentCourses> vector_copy(st_vec);
+	const double max_score = std::max_element(st_vec.begin(), st_vec.end(), grades_comparator)->get_final_score();
 
-	MergeSort::merge_sort<StudentCourses>(st_vec, grades_comparator);
-	const int num = std::min(n, (int)st_vec.size());
-
-	for (int i = 0; i < num; ++i)
+	for (StudentCourses sc : st_vec)
 	{
-		st_vec[i].display();
+		if (sc.get_final_score() == max_score)
+		{
+			sc.display();
+		}
 	}
-
-	st_vec = vector_copy;
 }
 
 /**

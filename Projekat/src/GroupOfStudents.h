@@ -35,7 +35,7 @@ public:
 	void display_one_student(const std::string& id) const;
 	void display() const;
 	void display_sorted() const;
-	void display_highest(const int n) const;
+	void display_highest() const;
 	void write_to_file(std::ofstream& out) const;
 	void write_to_binary_file(std::ofstream& out) const;
 	void read_from_binary_file(std::ifstream& in) const;
