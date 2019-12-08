@@ -6,7 +6,7 @@
 // Version         : 1.0
 // Description     : Klasa Courses koja cuva sve rezultate kvizova, domacih
 // zadataka i testova studenta. Cuva konacnu ocenu i njenu znakovu reprezentaciju
-// kao i funckije koje za racunanje istih. Poseduje funkcija za prikazivanje,
+// kao i funckije za racunanje istih. Poseduje funkciju za prikazivanje,
 // ucitavanje i ispis klase.
 //============================================================================
 
@@ -30,21 +30,16 @@ public:
 	static const int NUM_TESTS = 4;
 
 private:
-	// this will not compile
-	// non-integral constants must be initialized in Courses.cpp
-	// with these values 0.05, 0.5, 0.45
 	static constexpr double QUIZ_WEIGHT = 0.05;
 	static constexpr double HOMEWORK_WEIGHT = 0.5;
 	static constexpr double TEST_WEIGHT = 0.45;
 
-	// private data
 	std::vector<int> quiz;
 	std::vector<int> homework;
 	std::vector<int> test;
 	double final_score;
 	char letter_grade;
 
-	// sum of grades in vector
 	int sum_grades_in_vector(const std::vector<int>& grades) const;
 	bool check_grades() const;
 

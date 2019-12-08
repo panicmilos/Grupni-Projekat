@@ -1,6 +1,6 @@
 //============================================================================
 // File Name	   : strutils.h
-// Authors		   : Milos Panic
+// Authors		   : Milos Panic, Dejan Todorovic
 // Created         : 01.12.2019.
 // Last Modified   : 01.12.2019. By Milos Panic
 // Version         : 1.0

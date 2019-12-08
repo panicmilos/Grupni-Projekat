@@ -2,11 +2,11 @@
 // File Name	   : Courses.cpp
 // Authors		   : Milos Panic, Dejan Todorovic
 // Created         : 29.11.2019.
-// Last Modified   : 03.12.2019. By Milos Panic
+// Last Modified   : 08.12.2019. By Dejan Todorovic
 // Version         : 1.0
 // Description     : Klasa Courses koja cuva sve rezultate kvizova, domacih
 // zadataka i testova studenta. Cuva konacnu ocenu i njenu znakovu reprezentaciju
-// kao i funckije koje za racunanje istih. Poseduje funkcija za prikazivanje,
+// kao i funckije za racunanje istih. Poseduje funkcije za prikazivanje,
 // ucitavanje i ispis klase.
 //============================================================================
 
@@ -39,7 +39,7 @@ Courses::Courses(const Courses& c) :
 }
 
 /**
- * Funkcija racuna zbir svih ocena u vetoru.
+ * Funkcija racuna zbir svih ocena u vektoru.
  *
  * @param grades - vektor koji sadrzi ocene.
  * @return broj koji predstavlja sumu brojeva u vetoru.
@@ -158,28 +158,28 @@ void Courses::calc_final_score()
 
 /**
  * Funckija koja racuna znakovnu reprezentaciju konacne ocene studenta po pravilu:
- * [100, 90] = A
- * [89, 80] = B
- * [79, 70] = C
- * [69, 60] = D
- * [59, 0] = F
+ * [100, 91] = A
+ * [90, 81] = B
+ * [80, 71] = C
+ * [70, 61] = D
+ * [60, 0] = F
  * Znak smesta u promenjivu letter_grade.
  */
 void Courses::calc_letter_grade()
 {
-	if (final_score >= 90)
+	if (final_score >= 91)
 	{
 		letter_grade = 'A';
 	}
-	else if (final_score >= 80)
+	else if (final_score >= 81)
 	{
 		letter_grade = 'B';
 	}
-	else if (final_score >= 70)
+	else if (final_score >= 71)
 	{
 		letter_grade = 'C';
 	}
-	else if (final_score >= 60)
+	else if (final_score >= 61)
 	{
 		letter_grade = 'D';
 	}
@@ -190,7 +190,7 @@ void Courses::calc_letter_grade()
 }
 
 /**
- *Funckija koja izvrsava sve bitne kalkulacije za ocenu.
+ * Funckija koja izvrsava sve bitne kalkulacije za ocenu.
 */
 void Courses::do_calculations()
 {
@@ -203,7 +203,7 @@ void Courses::do_calculations()
  * Ispis je u formatu: zavrsna_ocena znakovna_reprezentacija_ocene
  *
  * @param out - izlaz na koji se ispisuju podaci.
- * @param c - objekat kurska ciji se podaci pisu na izlaz.
+ * @param c - objekat kursa ciji se podaci pisu na izlaz.
  */
 std::ostream& operator <<(std::ostream& out, const Courses& c)
 {

@@ -82,5 +82,22 @@
     <Text Include="res\output.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="res\default_output_name.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\input2_fail.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\output1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\input1.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\input2_fail.bin">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

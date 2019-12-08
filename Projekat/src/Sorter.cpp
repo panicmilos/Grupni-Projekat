@@ -2,7 +2,7 @@
 // File Name       : Ssorter.cpp
 // Authors         : Dejan Todorovic, Milos Panic
 // Created         : 01.12.2019.
-// Last Modified   : 02.12.2019. By Milos Panic
+// Last Modified   : 08.12.2019. By Dejan Todorovic
 // Version         : 1.0
 // Description     : Klasa Sorter poseduje staticku metodu sort koja pomocu
 // Merge Sort-a sortira vector elemenata po zadatom kriterijumu. Pored nje
@@ -12,7 +12,7 @@
 #include "Sorter.h"
 
 /**
- * Funckija koja sortira vector elemenata po zadatom kriterijmu. Algoritam je
+ * Funckija koja sortira vektor elemenata po zadatom kriterijmu. Algoritam je
  * Merge Sort.
  *
  * @param vec - vektor elemenata proizvoljnog tipa ciji se elementi sortiraju.
@@ -53,7 +53,7 @@ void MergeSort::merge_sort_loop(std::vector<T>& vec, std::vector<T>& temp, bool 
 }
 
 /**
- * Funckija koja uzima dva dela izdeljenog vektora, i spaja ih tako da budu sortirana
+ * Funckija koja uzima dva dela izdeljenog vektora i spaja ih tako da budu sortirana
  * dokle god se jedan od ta dva dela skroz ne isprazne. Zatim ostatak jednog od dva
  * vektora stavlja u temp i posle toga taj sortirani deo vraca u pocetan vektor.
  *
@@ -83,26 +83,3 @@ void MergeSort::merge(std::vector<T>& vec, std::vector<T>& temp, bool(*compariso
 	std::move(vec.begin() + j, vec.begin() + end + 1, it);
 	std::move(temp.begin() + begin, temp.begin() + end + 1, vec.begin() + begin);
 }
-
-/*
-template<typename T>
-void MergeSort::merge(std::vector<T>& vec, std::vector<T>& temp, bool(*comparison_fcn)(T, T), int begin, int middle, int end)
-{
-	int i = begin;
-	int j = middle + 1;
-	int k = begin;
-
-	while (i <= middle && j <= end) {
-		temp[k++] = (comparison_fcn(vec[i], vec[j]))?vec[j++]:vec[i++];
-	}
-	while (i <= middle) {
-		temp[k++] = vec[i++];
-	}
-	while (j <= end) {
-		temp[k++] = vec[j++];
-	}
-	for (k = begin; k <= end; ++k) {
-		vec[k] = temp[k];
-	}
-}
-*/

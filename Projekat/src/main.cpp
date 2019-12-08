@@ -2,7 +2,7 @@
 // File Name	   : main.cpp
 // Authors		   : Milos Panic, Dejan Todorovic
 // Created         : 01.12.2019.
-// Last Modified   : 03.12.2019. By Milos Panic
+// Last Modified   : 08.12.2019. By Dejan Todorovic
 // Version         : 1.0
 // Description     : Main proverava argumente komandne linije i nakon toga
 // instancira objekat menija gde je omogucena interakcija sa korisnikom.
@@ -38,9 +38,9 @@ int main(const int argc, const char* argv[])
 		cout << "> ";
 		while (!(cin >> option) || option < 1 || option > Menu::EXIT)
 		{
-			if (cin.fail())	// we found something that wasn’t an integer
+			if (cin.fail())	// ukoliko nije integer
 			{
-				cin.clear();	// we’d like to look at the characters
+				cin.clear();
 				char ch;
 				while (cin >> ch && !isdigit(ch))
 				{
@@ -56,7 +56,7 @@ int main(const int argc, const char* argv[])
 			}
 		}
 
-		if (!students_inputed && option != Menu::INFO && option != Menu::READ_FILE)
+		if (!students_inputed && option != Menu::INFO && option != Menu::READ_FILE && option != Menu::EXIT)
 		{
 			std::cout << "Prvo morate ucitati studente.\n";
 			continue;

@@ -7,7 +7,7 @@
 // Description     : Ovaj klasa predstavlja kolekciju klasa StudentCourses
 // i sadrzi funckije za rad nad kolekcijom kao sto su trazenje najboljih,
 // prikaz studenata, prikaz sortiranih studenata, citanje i pisanje u
-// fajlove, ...
+// fajlove.
 //============================================================================
 
 #include "GroupOfStudents.h"
@@ -75,7 +75,7 @@ void GroupOfStudents::display() const
 
 /**
  * Funkcija ispisuje sve studente zajedno sa njihovim ocenama na standardnom ulazu.
- * Studenti su sortirani prema alfabetnom redu i to prvo prezime, ime pa tek onda
+ * Studenti su sortirani prema alfabetnom redu i to prvo prezime, ime pa 
  * broj indexa.
  * Ispis za svakog studenta je u formatu:
  * br_indexa ime prezime zavrsna_ocena znakovna_reprezentacija_ocene

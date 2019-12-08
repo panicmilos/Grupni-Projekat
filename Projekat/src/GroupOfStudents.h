@@ -4,10 +4,10 @@
 // Created         : 29.11.2019.
 // Last Modified   : 02.12.2019. By Milos Panic
 // Version         : 1.0
-// Description     : Ovaj klasa predstavlja kolekciju klasa StudentCourses
+// Description     : Ovaj klasa predstavlja kolekciju objekata StudentCourses
 // i sadrzi funckije za rad nad kolekcijom kao sto su trazenje najboljih,
 // prikaz studenata, prikaz sortiranih studenata, citanje i pisanje u
-// fajlove, ...
+// fajlove.
 //============================================================================
 
 #ifndef GROUPOFSTUDENTS_H_
