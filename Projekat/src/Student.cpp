@@ -91,6 +91,11 @@ void Student::read_from_binary_file(std::ifstream& in)
 	int length;
 	in.read((char*)&length, sizeof(int));
 
+	if (in.fail())
+	{
+		return;
+	}
+
 	std::string line_from_file;
 	line_from_file.resize(length);
 	in.read(&line_from_file[0], length);
