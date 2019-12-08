@@ -146,15 +146,7 @@
     <ClInclude Include="src\Validations.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\default_output_name.txt" />
-    <Text Include="res\input1.txt" />
-    <Text Include="res\input2_fail.txt" />
-    <Text Include="res\output.txt" />
-    <Text Include="res\output1.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\input1.bin" />
-    <None Include="res\input2_fail.bin" />
+    <Text Include="res\input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

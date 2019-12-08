@@ -1,0 +1,10 @@
+SW01/2050 Maja Majic 80 C
+SW02/2050 Mina Minic 92 A
+SW10/2050 Petar Petrovic 96 A
+SW17/2018 Dejan Todorovic 98 A
+SW19/2018 Milos Panic 97 A
+SW20/2050 Luka Lukic 91 A
+SW30/2050 Mara Maric 96 A
+SW35/2050 Miki Mikic 94 A
+SW40/2050 Tina Tinic 97 A
+SW50/2050 Marko Markovic 80 C
