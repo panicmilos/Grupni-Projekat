@@ -73,7 +73,11 @@ void Student::display() const
 */
 void Student::write_to_binary_file(std::ofstream& out) const
 {
-	out.write((char*)this, sizeof(Student));
+	const std::string student_str = first_name + " " + last_name + " " + ID;
+	const int length = student_str.length();
+
+	out.write((char*)&length, sizeof(int));
+	out.write(student_str.c_str(), length);
 }
 
 /**
@@ -82,9 +86,24 @@ void Student::write_to_binary_file(std::ofstream& out) const
  *
  * @param in - ulazni tok iz kojeg se cita.
 */
-void Student::read_from_binary_file(std::ifstream& in) const
+void Student::read_from_binary_file(std::ifstream& in)
 {
-	in.read((char*)this, sizeof(Student));
+	int length;
+	in.read((char*)&length, sizeof(int));
+
+	std::string line_from_file;
+	line_from_file.resize(length);
+	in.read(&line_from_file[0], length);
+
+	if (count_words(line_from_file) != 3)
+	{
+		in.setstate(std::ios::failbit);
+	}
+	else
+	{
+		std::istringstream sstream(line_from_file);
+		sstream >> first_name >> last_name >> ID;
+	}
 }
 
 /**
