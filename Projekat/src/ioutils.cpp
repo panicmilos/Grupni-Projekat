@@ -32,7 +32,7 @@ std::string find_output_path(const int argc, const char* argv[])
 	{
 		const std::string input_path = argv[1];
 
-		return input_path.substr(0, index + 1) + DEFAULT_OUTPUT_NAME;
+		return input_path.substr(0, (size_t)index + 1) + DEFAULT_OUTPUT_NAME;
 	}
 	else
 	{
