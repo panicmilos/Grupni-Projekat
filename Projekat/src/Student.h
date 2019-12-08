@@ -31,7 +31,7 @@ public:
 
 	void display() const;
 	void write_to_binary_file(std::ofstream& out) const;
-	void read_from_binary_file(std::ifstream& in) const;
+	void read_from_binary_file(std::ifstream& in);
 
 	std::string get_first_name() const;
 	std::string get_last_name() const;

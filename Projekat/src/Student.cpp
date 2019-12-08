@@ -74,7 +74,7 @@ void Student::display() const
 void Student::write_to_binary_file(std::ofstream& out) const
 {
 	const std::string student_str = first_name + " " + last_name + " " + ID;
-	const int length = student_str.length();
+	const int length = (int)student_str.length();
 
 	out.write((char*)&length, sizeof(int));
 	out.write(student_str.c_str(), length);
