@@ -36,9 +36,10 @@ int find_last_char_in_string(const std::string& str, const char c)
  * @param str - string u kojem broje reci.
  * @return broj reci u stringu.
  */
-int count_words(const std::string& str) {
+int count_words(std::string& str) {
 	int count = 0;
 
+	std::replace(str.begin(), str.end(), '\0', ' ');
 	std::string word;
 	std::istringstream sstream(str);
 
