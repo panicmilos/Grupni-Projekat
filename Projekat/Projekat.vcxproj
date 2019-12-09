@@ -148,6 +148,23 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\input.txt" />
+    <Text Include="res\input_bad_grades.txt" />
+    <Text Include="res\input_bad_grades2.txt" />
+    <Text Include="res\input_bad_range.txt" />
+    <Text Include="res\input_bad_student1.txt" />
+    <Text Include="res\input_bad_student2.txt" />
+    <Text Include="res\input_grades.txt" />
+    <Text Include="res\output.txt" />
+    <Text Include="res\output_bin.txt" />
+    <Text Include="res\output_grades.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\input_bin.bin" />
+    <None Include="res\input_bin_bad_grades.bin" />
+    <None Include="res\input_bin_bad_range.bin" />
+    <None Include="res\input_bin_bad_student1.bin" />
+    <None Include="res\input_bin_bad_student2.bin" />
+    <None Include="res\output_bin.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

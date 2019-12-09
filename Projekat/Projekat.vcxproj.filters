@@ -82,5 +82,52 @@
     <Text Include="res\input.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="res\input_bad_grades.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\input_bad_range.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\input_bad_student1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\input_bad_student2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\input_grades.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\output.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\input_bad_grades2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\output_bin.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\output_grades.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\input_bin.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\input_bin_bad_grades.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\input_bin_bad_range.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\input_bin_bad_student1.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\input_bin_bad_student2.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\output_bin.bin">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
