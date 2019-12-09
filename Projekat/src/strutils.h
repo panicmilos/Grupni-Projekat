@@ -10,6 +10,7 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <algorithm>
 
 int find_last_char_in_string(const std::string& str, const char c);
-int count_words(const std::string& str);
+int count_words(std::string& str);
