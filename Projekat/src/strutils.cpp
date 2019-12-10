@@ -19,15 +19,9 @@
  */
 int find_last_char_in_string(const std::string& str, const char c)
 {
-	for (int i = str.size() - 1; i >= 0; --i)
-	{
-		if (str[i] == c)
-		{
-			return i;
-		}
-	}
+	const std::string::const_reverse_iterator it = std::find(str.crbegin(), str.crend(), c);
 
-	return -1;
+	return (it != str.crend()) ? std::distance(it, str.crend()) - 1 : -1;
 }
 
 /**
